@@ -1,0 +1,61 @@
+T = 24 horas
+* Sol:
+    - Raio: 696 340 km;
+
+* Mercúrio:
+    - Raio: 2440 km;
+    - Distância do Sol: 57.9 Gm;
+    - Rotação: 58.65 dias T;
+    - Órbita: 88 dias T;
+
+* Vênus:
+    - Raio: 6052 km;
+    - Distância do Sol: 108.2 Gm;
+    - Rotação: 243 dias T;
+    - Órbita: 224.7 dias T;
+
+* Terra:
+    - Raio: 6378 km;
+    - Distância do Sol: 149.6 Gm;
+    - Rotação: 1 dia T;
+    - Órbita: 365.25 dias T;
+
+* Marte:
+    - Raio: 3396 km;
+    - Distância do Sol: 228 Gm;
+    - Rotação: 1.02 dia T;
+    - Órbita: 687 dias T;
+
+* Júpiter:
+    - Raio: 71492 km;
+    - Distância do Sol: 778.5 Gm;
+    - Rotação: 0.41 dia T;
+    - Órbita: 4331 dias T;
+
+* Saturno:
+    - Raio: 60268 km;
+    - Distância do Sol: 1432 Gm;
+    - Rotação: 0.45 dia T;
+    - Órbita: 10747 dias T;
+
+* Uranus:
+    - Raio: 25559 km;
+    - Distância do Sol: 2867 Gm;
+    - Rotação: -0.71 dia T;
+    - Órbita: 30589 dias T;
+
+* Neptune:
+    - Raio: 2440 km;
+    - Distância do Sol: 4515 Gm;
+    - Rotação: 0.67 dia T;
+    - Órbita: 59800 dias T;
+
+* Plutão:
+    - Raio: 1188 km;
+    - Distância do Sol: 5906.4 Gm;
+    - Rotação: -6.39 dias T;
+    - Órbita: 90560 dias T;
+
+REFERÊNCIA:
+
+    https://nssdc.gsfc.nasa.gov/planetary/factsheet/
