@@ -45,7 +45,7 @@ T = 24 horas
     - Órbita: 30589 dias T;
 
 * Netuno:
-    - Raio: 2440 km;
+    - Raio: 24764 km;
     - Distância do Sol: 4515 Gm;
     - Rotação: 0.67 dia T;
     - Órbita: 59800 dias T;

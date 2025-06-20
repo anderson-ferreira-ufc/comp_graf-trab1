@@ -13,34 +13,42 @@ document.body.appendChild(renderer.domElement);
 let tempo_terra = 0;
 
 let orbita_merc = 0;
-let raio_merc = 2440;
+const raio_merc = 2440;
 const merc_sol_dist = 28;
 
 let orbita_ven = 0;
-let raio_ven = 6052;
+const raio_ven = 6052;
 const ven_sol_dist = 40;
 
 let orbita_terra = 0;
-let raio_terra = 6378;
+const raio_terra = 6378;
 const terra_sol_dist = 60;
 
 let orbita_mar = 0;
-let raio_mar = 3396;
+const raio_mar = 3396;
 const mar_sol_dist = 80;
 
 let orbita_jup = 0;
-let raio_jup = 71492;
+const raio_jup = 71492;
 const jup_sol_dist = 100;
 
 let orbita_sat = 0;
-let raio_sat = 60268;
+const raio_sat = 60268;
 const sat_sol_dist = 130;
 
 let orbita_ura = 0;
-let raio_ura = 25559;
+const raio_ura = 25559;
 const ura_sol_dist = 160;
 
-const animationSpeed = 0.2; // Velocidade de animação.
+let orbita_net = 0;
+const raio_net = 24764;
+const net_sol_dist = 180;
+
+let orbita_plu = 0;
+const raio_plu = 1188;
+const plu_sol_dist = 200;
+
+const animationSpeed = 0.5; // Velocidade de animação.
 
 //Sol
 const geo_sol = new THREE.SphereGeometry(20, 32, 32);
@@ -50,7 +58,7 @@ scene.add(sol);
 
 // Eixo x, y e z.
 const axesHelper = new THREE.AxesHelper( 15 );
-scene.add( axesHelper );
+//scene.add( axesHelper );
 
 // Grid de apoio.
 function createGrid(size = 1300, divisions = 1000) {
@@ -131,6 +139,26 @@ function uranoTranslacao() {
     return urano;
 }
 
+function netunoTranslacao() {
+    const net_loader = new THREE.TextureLoader().load('textures/net_tex.jpg');
+    const geo_net = new THREE.SphereGeometry(raio_net / raio_terra, 32, 32);
+    const material_net = new THREE.MeshBasicMaterial({map: net_loader});
+    const netuno = new THREE.Mesh(geo_net, material_net);
+    netuno.position.set(0, 0, 0);
+    scene.add(netuno);
+    return netuno;
+}
+
+function plutaoTranslacao() {
+    const plu_loader = new THREE.TextureLoader().load('textures/plu_tex.png');
+    const geo_plu = new THREE.SphereGeometry(raio_plu / raio_terra, 32, 32);
+    const material_plu = new THREE.MeshBasicMaterial({map: plu_loader});
+    const plutao = new THREE.Mesh(geo_plu, material_plu);
+    plutao.position.set(0, 0, 0);
+    scene.add(plutao);
+    return plutao;
+}
+
 const mercurio = mercurioTranslacao();
 const venus = venusTranslacao();
 const terra = terraTranslacao();
@@ -138,8 +166,10 @@ const marte = marteTranslacao();
 const jupiter = jupiterTranslacao();
 const saturno = saturnoTranslacao();
 const urano = uranoTranslacao();
+const netuno = netunoTranslacao();
+const plutao = plutaoTranslacao();
 
-scene.add(createGrid());
+//scene.add(createGrid());
 
 // Função de animação dos objetos da cena.
 function animate() {
@@ -180,16 +210,28 @@ function animate() {
     jupiter.rotation.y = tempo_terra * (365 / 0.43); // Ano Terrestre (dias) / Rotação de Júpiter (dias terrestre)
     
     // Parâmetros de transformação de Saturno.
-    orbita_sat = tempo_terra * (365 / 10747); // Ano Terrestre (dias) / Órbita de Júpiter (dias terrestre)
+    orbita_sat = tempo_terra * (365 / 10747); // Ano Terrestre (dias) / Órbita de Saturno (dias terrestre)
     saturno.position.x = Math.sin(orbita_sat) * sat_sol_dist;
     saturno.position.z = Math.cos(orbita_sat) * sat_sol_dist; 
-    saturno.rotation.y = tempo_terra * (365 / 1); // Ano Terrestre (dias) / Rotação de Júpiter (dias terrestre)
+    saturno.rotation.y = tempo_terra * (365 / 1); // Ano Terrestre (dias) / Rotação de Saturno (dias terrestre)
 
     // Parâmetros de transformação de Urano.
-    orbita_ura = tempo_terra * (365 / 10747); // Ano Terrestre (dias) / Órbita de Júpiter (dias terrestre)
+    orbita_ura = tempo_terra * (365 / 30589); // Ano Terrestre (dias) / Órbita de Urano (dias terrestre)
     urano.position.x = Math.sin(orbita_ura) * ura_sol_dist;
-    urano.position.z = Math.cos(orbita_sat) * ura_sol_dist; 
-    urano.rotation.y = tempo_terra * (365 / (-0.7)); // Ano Terrestre (dias) / Rotação de Júpiter (dias terrestre)
+    urano.position.z = Math.cos(orbita_ura) * ura_sol_dist; 
+    urano.rotation.y = tempo_terra * (365 / (-0.71)); // Ano Terrestre (dias) / Rotação de Urano (dias terrestre)
+
+    // Parâmetros de transformação de Netuno.
+    orbita_net = tempo_terra * (365 / 59800); // Ano Terrestre (dias) / Órbita de Netuno (dias terrestre)
+    netuno.position.x = Math.sin(orbita_net) * net_sol_dist;
+    netuno.position.z = Math.cos(orbita_net) * net_sol_dist; 
+    netuno.rotation.y = tempo_terra * (365 / (-0.67)); // Ano Terrestre (dias) / Rotação de Netuno (dias terrestre)
+
+    // Parâmetros de transformação de Plutão.
+    orbita_plu = tempo_terra * (365 / 90560); // Ano Terrestre (dias) / Órbita de Plutão (dias terrestre)
+    plutao.position.x = Math.sin(orbita_plu) * plu_sol_dist;
+    plutao.position.z = Math.cos(orbita_plu) * plu_sol_dist; 
+    plutao.rotation.y = tempo_terra * (365 / (-6.39)); // Ano Terrestre (dias) / Rotação de Plutão (dias terrestre)
 
     controls.update();
 }
