@@ -38,13 +38,13 @@ T = 24 horas
     - Rotação: 0.45 dia T;
     - Órbita: 10747 dias T;
 
-* Uranus:
+* Urano:
     - Raio: 25559 km;
     - Distância do Sol: 2867 Gm;
     - Rotação: -0.71 dia T;
     - Órbita: 30589 dias T;
 
-* Neptune:
+* Netuno:
     - Raio: 2440 km;
     - Distância do Sol: 4515 Gm;
     - Rotação: 0.67 dia T;

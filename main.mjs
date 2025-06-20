@@ -36,6 +36,11 @@ let orbita_sat = 0;
 let raio_sat = 60268;
 const sat_sol_dist = 130;
 
+let orbita_ura = 0;
+let raio_ura = 25559;
+const ura_sol_dist = 160;
+
+const animationSpeed = 0.2; // Velocidade de animação.
 
 //Sol
 const geo_sol = new THREE.SphereGeometry(20, 32, 32);
@@ -116,14 +121,23 @@ function saturnoTranslacao() {
     return saturno;
 }
 
+function uranoTranslacao() {
+    const ura_loader = new THREE.TextureLoader().load('textures/ura_tex.jpg');
+    const geo_ura = new THREE.SphereGeometry(raio_ura / raio_terra, 32, 32);
+    const material_ura = new THREE.MeshBasicMaterial({map: ura_loader});
+    const urano = new THREE.Mesh(geo_ura, material_ura);
+    urano.position.set(0, 0, 0);
+    scene.add(urano);
+    return urano;
+}
+
 const mercurio = mercurioTranslacao();
 const venus = venusTranslacao();
 const terra = terraTranslacao();
 const marte = marteTranslacao();
 const jupiter = jupiterTranslacao();
 const saturno = saturnoTranslacao();
-
-const animationSpeed = 1; // Velocidade de animação.
+const urano = uranoTranslacao();
 
 scene.add(createGrid());
 
@@ -170,6 +184,12 @@ function animate() {
     saturno.position.x = Math.sin(orbita_sat) * sat_sol_dist;
     saturno.position.z = Math.cos(orbita_sat) * sat_sol_dist; 
     saturno.rotation.y = tempo_terra * (365 / 1); // Ano Terrestre (dias) / Rotação de Júpiter (dias terrestre)
+
+    // Parâmetros de transformação de Urano.
+    orbita_ura = tempo_terra * (365 / 10747); // Ano Terrestre (dias) / Órbita de Júpiter (dias terrestre)
+    urano.position.x = Math.sin(orbita_ura) * ura_sol_dist;
+    urano.position.z = Math.cos(orbita_sat) * ura_sol_dist; 
+    urano.rotation.y = tempo_terra * (365 / (-0.7)); // Ano Terrestre (dias) / Rotação de Júpiter (dias terrestre)
 
     controls.update();
 }
