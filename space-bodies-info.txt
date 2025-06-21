@@ -20,6 +20,13 @@ T = 24 horas
     - Rotação: 1 dia T;
     - Órbita: 365.25 dias T;
 
+* Lua:
+    - Raio: 1737.4 km;
+    - Distância do Sol: 149.6 Gm;
+    - Rotação: 1 dia T;
+    - Órbita: 365.25 dias T;
+
+
 * Marte:
     - Raio: 3396 km;
     - Distância do Sol: 228 Gm;
