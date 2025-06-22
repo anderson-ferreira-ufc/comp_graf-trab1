@@ -1,11 +1,12 @@
+//import {orbita_merc, raio_merc, merc_sol_dist} from './mercurio.mjs';
 import { OrbitControls } from "https://esm.sh/three/addons/controls/OrbitControls.js";
+import {scene, camera, renderer} from './cena.mjs';
+import {sol} from './sol.mjs';
 
-let esc_dist = 60; // Valor base que será utilizado em cálculos para preservar a proporção real da distância entre os astros e o Sol.
-
+export const esc_dist = 60; // Valor base que será utilizado em cálculos para preservar a proporção real da distância entre os astros e o Sol.
 // Criando a cena
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(0, 100, 0);
 camera.lookAt(0, 0, 0);
@@ -15,11 +16,9 @@ document.body.appendChild(renderer.domElement);
 let tempo_terra = 0; // Variável utilizada como progressão de tempo.
 let animationSpeed = 1; // Velocidade de animação.
 
-// Dados de Mercúrio.
-let orbita_merc = 0; // Inicializando o parâmetro da órbita.
-const raio_merc = 2440;
-const merc_sol_dist = (esc_dist*(57900000 + 696340 + 2440)/(149600000 + 696340 + 6378)); // 23.39 = Distância entre os centros de Mercúrio e Sol.
-
+export let orbita_merc = 0; // Inicializando o parâmetro da órbita.
+export const raio_merc = 2440;
+export const merc_sol_dist = (esc_dist*(57900000 + 696340 + 2440)/(149600000 + 696340 + 6378)); // 23.39 = Distância entre os centros de Mercúrio e Sol.
 // Dados de Vênus.
 let orbita_ven = 0; // Inicializando o parâmetro da órbita.
 const raio_ven = 6052;
@@ -65,10 +64,6 @@ let orbita_plu = 0; // Inicializando o parâmetro da órbita.
 const raio_plu = 1188;
 const plu_sol_dist = (esc_dist*(5906400000 + 696340 + 1188)/(149600000 + 696340 + 6378)); // 2358.11 = Distância entre os centros de Plutão e Sol.
 
-//Construção do Sol.
-const geo_sol = new THREE.SphereGeometry(15, 32, 32);
-const material_sol = new THREE.MeshBasicMaterial({color:0xffe341});
-const sol = new THREE.Mesh(geo_sol, material_sol);
 scene.add(sol);
 
 // Eixo x, y e z.
