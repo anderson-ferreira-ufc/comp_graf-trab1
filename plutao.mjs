@@ -17,16 +17,6 @@ export function plutaoTranslacao() {
     return plutao;
 }
 
-export function netunoTranslacao() {
-    const net_loader = new THREE.TextureLoader().load('textures/net_tex.jpg');
-    const geo_net = new THREE.SphereGeometry(raio_net / raio_terra, 32, 32); // Proporção Netuno / Terra = 3.88
-    const material_net = new THREE.MeshBasicMaterial({map: net_loader});
-    const netuno = new THREE.Mesh(geo_net, material_net);
-    netuno.position.set(0, 0, 0);
-    scene.add(netuno);
-    return netuno;
-}
-
 export function trajetoriaPlutao() {
     const curve = new THREE.EllipseCurve(
     0, 0,            // x e y do centro
