@@ -1,22 +1,21 @@
 import {merc_sol_dist, mercurioTranslacao} from './mercurio.mjs';
 import {ven_sol_dist, venusTranslacao} from './venus.mjs';
-import {terra_sol_dist, terraTranslacao} from './terra.mjs';
-import {lua_sol_dist, luaTranslacao} from './lua.mjs';
+import {terra_sol_dist, terraTranslacao, lua_sol_dist, luaTranslacao} from './terra.mjs';
 import {mar_sol_dist, marteTranslacao} from './marte.mjs';
 import {jup_sol_dist, jupiterTranslacao} from './jupiter.mjs';
-import {sat_sol_dist, saturnoTranslacao} from './saturno.mjs';
+import {sat_sol_dist, satAnel_sol_dist, saturnoTranslacao, saturnoAnelTranslacao} from './saturno.mjs';
 import {ura_sol_dist, uranoTranslacao} from './urano.mjs';
 import {net_sol_dist, netunoTranslacao} from './netuno.mjs';
 import {plu_sol_dist, plutaoTranslacao} from './plutao.mjs';
 import { OrbitControls } from "https://esm.sh/three/addons/controls/OrbitControls.js";
 import {scene, camera, renderer} from './cena.mjs';
-import {sol} from './sol.mjs';
+import {esc_dist, sol} from './sol.mjs';
 
-let animationSpeed = 5; // Velocidade de animação.
+let animationSpeed = 1; // Velocidade de animação.
 let tempo_terra = 0; // Variável utilizada como progressão de tempo.
 
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.set(0, 100, 0);
+camera.position.set(0, 100 + esc_dist * 0.2, 0);
 camera.lookAt(0, 0, 0);
 const controls = new OrbitControls(camera, renderer.domElement);
 document.body.appendChild(renderer.domElement);
@@ -24,7 +23,7 @@ document.body.appendChild(renderer.domElement);
 scene.add(sol);
 
 // Eixo x, y e z.
-const axesHelper = new THREE.AxesHelper(15);
+const axesHelper = new THREE.AxesHelper(500);
 //scene.add( axesHelper );
 
 // Grid de apoio.
@@ -40,6 +39,7 @@ const lua = luaTranslacao();
 const marte = marteTranslacao();
 const jupiter = jupiterTranslacao();
 const saturno = saturnoTranslacao();
+const saturnoAnel = saturnoAnelTranslacao();
 const urano = uranoTranslacao();
 const netuno = netunoTranslacao();
 const plutao = plutaoTranslacao();
@@ -77,8 +77,8 @@ function animate() {
 
     // Parâmetros de transformação da Lua.
     let orbita_lua = tempo_terra * (365.25 / 365.25); 
-    lua.position.x = Math.sin(orbita_lua) * lua_sol_dist + Math.cos(13.37*orbita_lua) * lua_sol_dist * 0.1;
-    lua.position.z = Math.cos(orbita_lua) * lua_sol_dist + Math.sin(13.37*orbita_lua) * lua_sol_dist * 0.1;
+    lua.position.x = Math.sin(orbita_lua) * lua_sol_dist + Math.cos(13.37*orbita_lua) * 6;
+    lua.position.z = Math.cos(orbita_lua) * lua_sol_dist + Math.sin(13.37*orbita_lua) * 6;
     lua.rotation.y = tempo_terra * (365.25 / (-27.3)); // Ano Terrestre (dias) / Rotação da Lua (dias terrestre)
     lua.rotation.x = 0.12; // Inclinação do eixo de rotação da Lua (6.7°)
 
@@ -102,6 +102,12 @@ function animate() {
     saturno.position.z = Math.cos(orbita_sat) * sat_sol_dist; 
     saturno.rotation.y = tempo_terra * (365.25 / 0.45); // Ano Terrestre (dias) / Rotação de Saturno (dias terrestre)
     saturno.rotation.x = 0.47; // Inclinação do eixo de rotação Saturno (26.7°)
+
+    // Parâmetros de transformação do anel de Saturno.
+    let orbita_satAnel = tempo_terra * (365.25 / 10747); // Ano Terrestre (dias) / Órbita de Saturno (dias terrestre)
+    saturnoAnel.position.x = Math.sin(orbita_satAnel) * satAnel_sol_dist;
+    saturnoAnel.position.z = Math.cos(orbita_satAnel) * satAnel_sol_dist; 
+    saturnoAnel.rotation.x = 2.04; // Inclinação do eixo de rotação Saturno (206.7°)
 
     // Parâmetros de transformação de Urano.
     let orbita_ura = tempo_terra * (365.25 / 30589); // Ano Terrestre (dias) / Órbita de Urano (dias terrestre)
