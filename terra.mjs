@@ -31,3 +31,45 @@ export function luaTranslacao() {
     scene.add(lua);
     return lua;
 }
+
+export function trajetoriaTerra() {
+    const curve = new THREE.EllipseCurve(
+    0, 0,            // x e y do centro
+    terra_sol_dist, terra_sol_dist,           // raioX e raioY
+    0, 2 * Math.PI,  // ângulo inicial e final
+    false,           // sentido horário (false = anti-horário)
+    0               // rotação da elipse
+    );
+
+    const points2D = curve.getPoints(100);
+
+    const points3D = points2D.map(p => new THREE.Vector3(p.x, p.y, 0));
+
+    const geometry = new THREE.BufferGeometry().setFromPoints(points3D);
+    const material = new THREE.LineBasicMaterial({ color: 0xfffff0 });
+
+    const ellipse = new THREE.Line(geometry, material);
+    scene.add(ellipse);
+    return ellipse;
+}
+
+export function trajetoriaLua() {
+    const curve = new THREE.EllipseCurve(
+    0, 0,            // x e y do centro
+    6, 6,           // raioX e raioY
+    0, 2 * Math.PI,  // ângulo inicial e final
+    false,           // sentido horário (false = anti-horário)
+    0               // rotação da elipse
+    );
+
+    const points2D = curve.getPoints(100);
+
+    const points3D = points2D.map(p => new THREE.Vector3(p.x, p.y, 0));
+
+    const geometry = new THREE.BufferGeometry().setFromPoints(points3D);
+    const material = new THREE.LineBasicMaterial({ color: 0xfffff0 });
+
+    const ellipse = new THREE.Line(geometry, material);
+    scene.add(ellipse);
+    return ellipse;
+}
