@@ -1,8 +1,8 @@
 import {scene} from './cena.mjs';
-//Construção do Sol.
 
-export const usr_inp = 1;
+export const usr_inp = 0.15; //Proporção do Sol desejada pelo usuário (variar de 0.15 à 1).
 
+// Construção do Sol.
 export function solProporcao(proporcao){
     const geo_sol = new THREE.SphereGeometry(109.2*proporcao, 32, 32); // Proporção do raio do Sol em relação ao raio da Terra.
     const material_sol = new THREE.MeshBasicMaterial({color:0xffe341});
