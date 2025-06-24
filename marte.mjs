@@ -31,8 +31,8 @@ export function trajetoriaMarte() {
     const points3D = points2D.map(p => new THREE.Vector3(p.x, p.y, 0));
 
     const geometry = new THREE.BufferGeometry().setFromPoints(points3D);
-    const material = new THREE.LineBasicMaterial({ color: 0xfffff0 });
-
+    const material = new THREE.LineBasicMaterial({ color:0xa6ff00 });
+    //8abf14
     const ellipse = new THREE.Line(geometry, material);
     scene.add(ellipse);
     return ellipse;
