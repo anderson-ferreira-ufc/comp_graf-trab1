@@ -17,6 +17,7 @@ export function venusTranslacao() {
     return venus;
 }
 
+/*
 // Trajetória de Vênus.
 export function trajetoriaVenus() {
     const curve = new THREE.EllipseCurve(
@@ -37,4 +38,4 @@ export function trajetoriaVenus() {
     const ellipse = new THREE.Line(geometry, material);
     scene.add(ellipse);
     return ellipse;
-}
+}*/

@@ -17,6 +17,7 @@ export function plutaoTranslacao() {
     return plutao;
 }
 
+/*
 export function trajetoriaPlutao() {
     const curve = new THREE.EllipseCurve(
     0, 0,            // x e y do centro
@@ -36,4 +37,4 @@ export function trajetoriaPlutao() {
     const ellipse = new THREE.Line(geometry, material);
     scene.add(ellipse);
     return ellipse;
-}
+}*/

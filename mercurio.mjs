@@ -17,6 +17,7 @@ export function mercurioTranslacao() {
     return mercurio;
 }
 
+/*
 // Trajetória do Mercúrio
 export function trajetoriaMercurio() {
     const curve = new THREE.EllipseCurve(
@@ -37,4 +38,4 @@ export function trajetoriaMercurio() {
     const ellipse = new THREE.Line(geometry, material);
     scene.add(ellipse);
     return ellipse;
-}
+}*/

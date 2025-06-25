@@ -31,6 +31,7 @@ export function saturnoAnelTranslacao() {
     return saturno_anel;
 }
 
+/*
 export function trajetoriaSaturno() {
     const curve = new THREE.EllipseCurve(
     0, 0,            // x e y do centro
@@ -50,4 +51,4 @@ export function trajetoriaSaturno() {
     const ellipse = new THREE.Line(geometry, material);
     scene.add(ellipse);
     return ellipse;
-}
+}*/
