@@ -7,13 +7,33 @@
     <title>Sistema Solar</title>
 </head>
 
-<body style="margin: 0; padding: 0">
+<body style="margin: 0; padding: 0; background-color: black;">
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <p style="color: gold; background-color: black; position: absolute; font-size: small;">+: aumentar velocidade <br>-:
-        diminuir
-        velocidade <br> p: pausar animação <br> spacebar: retomar à velocidade inicial <br> <br>Velocidade Atual:
-        <span id="velocidade">1</span>
+
+    <!-- Instruções de controle -->
+    <p style="color: gold; background-color: black; position: absolute; font-size: small; left: 10px; top: 10px;">
+        +: aumentar velocidade <br>
+        -: diminuir velocidade <br>
+        p: pausar animação <br>
+        spacebar: retomar à velocidade inicial <br><br>
+        Velocidade Atual: <span id="velocidade">1</span>
     </p>
+
+    <!-- Caixa de seleção de trajetórias -->
+    <div style="color: gold; background-color: black; position: absolute; font-size: small; left: 10px; top: 130px; padding: 8px; border: 1px solid gold; border-radius: 5px;">
+        <b>Trajetórias:</b><br>
+        <label><input type="checkbox" id="traj_merc"> Mercúrio</label><br>
+        <label><input type="checkbox" id="traj_ven"> Vênus</label><br>
+        <label><input type="checkbox" id="traj_terra"> Terra</label><br>
+        <label><input type="checkbox" id="traj_lua"> Lua</label><br>
+        <label><input type="checkbox" id="traj_mar"> Marte</label><br>
+        <label><input type="checkbox" id="traj_jup"> Júpiter</label><br>
+        <label><input type="checkbox" id="traj_sat"> Saturno</label><br>
+        <label><input type="checkbox" id="traj_ura"> Urano</label><br>
+        <label><input type="checkbox" id="traj_net"> Netuno</label><br>
+        <label><input type="checkbox" id="traj_plu"> Plutão</label>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
     <script type="module" src="./main.mjs"></script>
 </body>
