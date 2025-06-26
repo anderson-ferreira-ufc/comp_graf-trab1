@@ -159,7 +159,7 @@ function animate() {
   netuno.position.z = Math.cos(orbita_net) * net_sol_dist;
   netuno.rotation.y = tempo_terra * (365.25 / 0.67); // Ano Terrestre (dias) / Rotação de Netuno (dias terrestre)
   netuno.rotation.x = 0.49; // Inclinação do eixo de rotação de Netuno (28.3°)
-  camera.position.set(Math.sin(orbita_net) * net_sol_dist - 15*Math.cos(orbita_net + Math.PI/2), 0, Math.cos(orbita_net) * net_sol_dist + 15*Math.sin(orbita_net + Math.PI/2));
+  //camera.position.set(Math.sin(orbita_net) * net_sol_dist - 15*Math.cos(orbita_net + Math.PI/2), 0, Math.cos(orbita_net) * net_sol_dist + 15*Math.sin(orbita_net + Math.PI/2));
 
   // Parâmetros de transformação de Plutão.
   let orbita_plu = tempo_terra * (365.25 / 90560); // Ano Terrestre (dias) / Órbita de Plutão (dias terrestre)
