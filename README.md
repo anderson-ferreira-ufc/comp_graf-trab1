@@ -1,25 +1,25 @@
 # Sistema Solar
-	O projeto aqui presente tem como objetivo simular graficamente o comportamento dos corpos
-	celestes mais notórios do Sistema Solar, abrangendo aspectos como órbita, rotação, inclinação,
-	etc., com todos os dados extraídos da NASA. A ferramenta utilizada foi o Three JS, uma biblioteca
-	JavasCript que trabalha com o framework Node.JS.
-	Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
+O projeto aqui presente tem como objetivo simular graficamente o comportamento dos corpos
+celestes mais notórios do Sistema Solar, abrangendo aspectos como órbita, rotação, inclinação,
+etc., com todos os dados extraídos da NASA. A ferramenta utilizada foi o Three JS, uma biblioteca
+JavasCript que trabalha com o framework Node.JS.
+Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
 
 ## Metodologia
-	A equipe decidiu representar fielmente o funcionamento do Sistema Solar, com dados extraídos da NASA.
-	As proporções de tamanho, órbita em torno do Sol, e rotação dos planetas estão em escala real,
-	com exceção das distância estes em relação ao Sol, em que aqui está representado em escala reduzida,
-	porém, ainda preservando a proporção das distâncias entre eles. Isso foi adotado para facilitar a
-	visualização dos objeto na cena, já que em escala realista, as distância entre impossibilitaria de
-	se ter uma visão panorâmica do sistema em funcionamento, pois a escala das distância entre eles
-	variam na casa dos milhares em relação ao diâmetro da Terra. No programa também é possível ajustar
-	a porcentagem do comprimento do raio do Sol, de 15% à 100%. Essa feature foi pensada com o intuito
-	de facilitar a visualização do comportamento dos planetas, pois nas proporções reais, o volume do
-	Sol em relação aos demais planetas pode variar de algumas centenas a até algumas centenas de milhões
-	de vezes o volume destes.
+A equipe decidiu representar fielmente o funcionamento do Sistema Solar, com dados extraídos da NASA.
+As proporções de tamanho, órbita em torno do Sol, e rotação dos planetas estão em escala real,
+com exceção das distância estes em relação ao Sol, em que aqui está representado em escala reduzida,
+porém, ainda preservando a proporção das distâncias entre eles. Isso foi adotado para facilitar a
+visualização dos objeto na cena, já que em escala realista, as distância entre impossibilitaria de
+se ter uma visão panorâmica do sistema em funcionamento, pois a escala das distância entre eles
+variam na casa dos milhares em relação ao diâmetro da Terra. No programa também é possível ajustar
+a porcentagem do comprimento do raio do Sol, de 15% à 100%. Essa feature foi pensada com o intuito
+de facilitar a visualização do comportamento dos planetas, pois nas proporções reais, o volume do
+Sol em relação aos demais planetas pode variar de algumas centenas a até algumas centenas de milhões
+de vezes o volume destes.
 	
-	A tabela abaixo diz respeito as informações relacionadas aos planetas, no caso, o raio, duração da
-	rotação, período de translação e inclinação orbital.
+A tabela abaixo diz respeito as informações relacionadas aos planetas, no caso, o raio, duração da
+rotação, período de translação e inclinação orbital.
 
 | Corpo celeste 	| Raio (Km) 	| Translação (dias terrestres) | Rotação (dias terrestres) | Distância do Sol (Gigametro) | Inclinação do eixo orbital (°)|
 |-----------------------|---------------|------------------------------|---------------------------|------------------------------|----------------------------|
@@ -36,15 +36,15 @@
 | Plutão		| 1188		| 90560			       | -6.39                     | 5906.4                       | 119.5 |
 
 ### Escala
-	Para fins de melhor visualização e navegação, adotou-se uma escala bastante reduzida, tendo
-	como base dessa escala o valor arbritário 60 armazenada na variável esc_dist presente no arquivo
-	"sol.mjs". Com isso é possível visualizar as distâncias dos planetas entre si, ao mesmo tempo
-	preservando as proporções.
+Para fins de melhor visualização e navegação, adotou-se uma escala bastante reduzida, tendo
+como base dessa escala o valor arbritário 60 armazenada na variável esc_dist presente no arquivo
+"sol.mjs". Com isso é possível visualizar as distâncias dos planetas entre si, ao mesmo tempo
+preservando as proporções.
 
 ### Distância dos centros planeta-Sol
-	Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
-	o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
-	da fórmula
+Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
+o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
+da fórmula
 
 ## Como rodar
 
