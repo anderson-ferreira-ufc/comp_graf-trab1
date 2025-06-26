@@ -44,7 +44,8 @@ preservando as proporções.
 ### Distância dos centros planeta-Sol
 Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
 o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
-da fórmula
+da fórmula.
+	pla_sol_dist = $esc_sol*(pla_sol_dist+sol_raio+pla_raio)/(terra_sol_dist+sol_raio+terra_raio)
 
 ## Como rodar
 
