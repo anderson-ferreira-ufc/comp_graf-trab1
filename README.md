@@ -42,10 +42,11 @@ como base dessa escala o valor arbritário 60 armazenada na variável esc_dist p
 preservando as proporções.
 
 ### Distância dos centros planeta-Sol
-Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
-o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
+Para realizar o cálculo deste aspectp, adotou-se como referência a distância do centro da Terra até
+o centro do Sol, e apartindo daí, podendo-se calcular a distância dos demais planeta. Isso é feito através
 da fórmula.
-	$Dist = escSol*(plaSolDist+solRaio+plaRaio)/(terraSolDist+SolRaio+terraRaio)$
+
+	$Dist = escDist*(plaSolDist+solRaio+plaRaio)/(terraSolDist+SolRaio+terraRaio)$
 
 ## Como rodar
 
