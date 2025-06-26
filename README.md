@@ -44,9 +44,14 @@ preservando as proporções.
 ### Distância dos centros planeta-Sol
 Para realizar o cálculo deste aspectp, adotou-se como referência a distância do centro da Terra até
 o centro do Sol, e apartindo daí, podendo-se calcular a distância dos demais planeta. Isso é feito através
-da fórmula.
-
-$Dist = escDist*(plaSolDist+solRaio+plaRaio)/(terraSolDist+SolRaio+terraRaio)$
+da fórmula.<br><br><br>
+* escDist = Escala padrão de distância;
+* plaSolDist = Distância planeta-Sol;
+* solRaio = Comprimento do raio do Sol;
+* plaRaio = Comprimento do raio do planeta;
+* terraSolDist = distância Terra-Sol;
+* terraRaio = Comprimento do raio da Terra;
+$DistCentro = escDist*(plaSolDist + solRaio + plaRaio) / (terraSolDist + SolRaio + terraRaio)$
 
 ## Como rodar
 
