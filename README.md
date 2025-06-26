@@ -22,7 +22,7 @@
 
 | Corpo celeste 	| Raio (Km) 	| Translação (dias terrestres) | Rotação (dias terrestres) | Distância do Sol (Gigametro) |
 |-----------------------|---------------|------------------------------|---------------------------|------------------------------|
-| Sol			| 696 340	|			       |			   | 				  |
+| Sol			| <p style="text-align:center"> 696 340</p>	|			       |			   | 				  |
 | Mercúrio		| 2440		| 88			       | 58.65			   | 57.9                         |
 | Vênus			| 6052		| 224.7			       | 243			   | 108.2                        |
 | Terra			| 6378		| 365.25		       | 1			   | 149.6                        |
