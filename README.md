@@ -42,16 +42,37 @@ como base dessa escala o valor arbritário 60 armazenada na variável esc_dist p
 preservando as proporções.
 
 ### Distância dos centros planeta-Sol
-Para realizar o cálculo deste aspectp, adotou-se como referência a distância do centro da Terra até
-o centro do Sol, e apartindo daí, podendo-se calcular a distância dos demais planeta. Isso é feito através
-da fórmula.<br><br><br>
-* escDist = Escala padrão de distância;
+Para realizar o cálculo deste aspecto, adotou-se como referência a distância do centro da Terra ao
+centro do Sol. Partindo disso, aplicamos a razão entre as distâncias centrais planeta-Sol por Terra-Sol,
+multiplicado pela escala padrão. Essa metodologia permite preservar as proporções das distâncias. A
+fórmula abaixo expressa o método:<br>
+
+***LEGENDA***
+* escDist = Escala padrão de distância (60);
 * plaSolDist = Distância planeta-Sol;
 * solRaio = Comprimento do raio do Sol;
 * plaRaio = Comprimento do raio do planeta;
 * terraSolDist = distância Terra-Sol;
-* terraRaio = Comprimento do raio da Terra;
-$DistCentro = escDist*(plaSolDist + solRaio + plaRaio) / (terraSolDist + SolRaio + terraRaio)$
+* terraRaio = Comprimento do raio da Terra;<br><br>
+
+$$
+distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + SolRaio + terraRaio)}
+$$
+
+### Rotação dos planetas
+Para se obter as a velocidade das rotações dos corpos celestes, adotamos como referência a da rotação
+terrestre para então realizar o cálculo das proporções Terra / planeta. Segue a fórmula abaixo:
+
+
+***LEGENDA***
+* velRot = Velocidade de rotação do planeta.
+* rotTerra = Número de rotações da Terra realizadas em uma volta completa em torno do Sol;
+* rotPlan = Número de rotações do planeta realizadas em uma volta completa em torno do Sol ;<br><br>
+
+
+$$
+velRot = TempoTerra* \frac {(rotTerra)}{(rotPlan)}
+$$
 
 ## Como rodar
 
