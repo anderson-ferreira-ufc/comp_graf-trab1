@@ -3,7 +3,8 @@
 	celestes mais notórios do Sistema Solar, abrangendo aspectos como órbita, rotação, inclinação,
 	etc., com todos os dados extraídos da NASA. A ferramenta utilizada foi o Three JS, uma biblioteca
 	JavasCript que trabalha com o framework Node.JS.
-	
+	Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
+
 ## Metodologia
 	A equipe decidiu representar fielmente o funcionamento do Sistema Solar, com dados extraídos da NASA.
 	As proporções de tamanho, órbita em torno do Sol, e rotação dos planetas estão em escala real,
@@ -43,7 +44,7 @@ preservando as proporções.
 ### Distância dos centros planeta-Sol
 	Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
 o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
-da fórmula: $5/2$
+da fórmula
 
 ## Como rodar
 
