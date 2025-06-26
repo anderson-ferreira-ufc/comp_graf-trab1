@@ -42,8 +42,8 @@ preservando as proporções.
 
 ### Distância dos centros planeta-Sol
 	Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
- o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
- da fórmula: $5/2$
+o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
+da fórmula: $5/2$
 
 ## Como rodar
 
