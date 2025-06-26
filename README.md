@@ -46,7 +46,7 @@ Para realizar o cálculo deste aspectp, adotou-se como referência a distância 
 o centro do Sol, e apartindo daí, podendo-se calcular a distância dos demais planeta. Isso é feito através
 da fórmula.
 
-	$Dist = escDist*(plaSolDist+solRaio+plaRaio)/(terraSolDist+SolRaio+terraRaio)$
+$Dist = escDist*(plaSolDist+solRaio+plaRaio)/(terraSolDist+SolRaio+terraRaio)$
 
 ## Como rodar
 
