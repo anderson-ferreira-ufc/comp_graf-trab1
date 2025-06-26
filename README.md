@@ -37,13 +37,14 @@
 
 ### Escala
 	Para fins de melhor visualização e navegação, adotou-se uma escala bastante reduzida, tendo
-como base dessa escala o valor arbritário 60 armazenada na variável esc_dist presente no arquivo
-"sol.mjs". Com isso é possível visualizar as distâncias dos planetas entre si, ao mesmo tempo
-preservando as proporções.
+	como base dessa escala o valor arbritário 60 armazenada na variável esc_dist presente no arquivo
+	"sol.mjs". Com isso é possível visualizar as distâncias dos planetas entre si, ao mesmo tempo
+	preservando as proporções.
 
-### Distância dos centros planeta-Sol <br> Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
-o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
-da fórmula
+### Distância dos centros planeta-Sol
+	Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
+	o centro do Sol, com isso, podendo calcular a distância dos demais planeta. Isso é feito através
+	da fórmula
 
 ## Como rodar
 
