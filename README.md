@@ -19,20 +19,20 @@
 	
 	A tabela abaixo diz respeito as informações relacionadas aos planetas, no caso, o raio, duração da
 	rotação, período de translação e inclinação orbital.
-	
-	| Corpo celeste | Raio (Km) | Translação (dias terrestres) | Rotação (dias terrestres) | Distância do Sol (Gigametro) |
-	|---------------|-----------|------------------------------|---------------------------|------------------------------|
-	| Sol			| 696 340	|							   |						   | 					          |
-	| Mercúrio		| 2440		| 88						   | 58.65			 	   	   | 57.9                         |
-	| Vênus			| 6052		| 224.7						   | 243				       | 108.2                        |
-	| Terra			| 6378		| 365.25					   | 1					   	   | 149.6                        |
-	| Lua			| 1737.4	| 365.25					   | 27					   	   | 150                          |
-	| Marte			| 3396		| 687						   | 1.02					   | 228                          |
-	| Júpiter		| 71492		| 4331						   | 0.41					   | 778.5                        |
-	| Saturno		| 60268		| 10747						   | 0.45					   | 1432                         |
-	| Urano			| 25559		| 30589						   | -0.71				   	   | 2867                         |
-	| Netuno		| 24764		| 59800						   | 0.67					   | 4515                         |
-	| Plutão		| 1188		| 90560						   | -6.39                     | 5906.4                       |
+
+| Corpo celeste 	| Raio (Km) 	| Translação (dias terrestres) | Rotação (dias terrestres) | Distância do Sol (Gigametro) |
+|-----------------------|---------------|------------------------------|---------------------------|------------------------------|
+| Sol			| 696 340	|			       |			   | 				  |
+| Mercúrio		| 2440		| 88			       | 58.65			   | 57.9                         |
+| Vênus			| 6052		| 224.7			       | 243			   | 108.2                        |
+| Terra			| 6378		| 365.25		       | 1			   | 149.6                        |
+| Lua			| 1737.4	| 365.25		       | 27			   | 150                          |
+| Marte			| 3396		| 687			       | 1.02			   | 228                          |
+| Júpiter		| 71492		| 4331			       | 0.41			   | 778.5                        |
+| Saturno		| 60268		| 10747			       | 0.45			   | 1432                         |
+| Urano			| 25559		| 30589			       | -0.71			   | 2867                         |
+| Netuno		| 24764		| 59800			       | 0.67			   | 4515                         |
+| Plutão		| 1188		| 90560			       | -6.39                     | 5906.4                       |
 
 ## Como rodar
 
