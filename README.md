@@ -59,20 +59,29 @@ $$
 distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + SolRaio + terraRaio)}
 $$
 
-### Rotação dos planetas
-Para se obter as a velocidade das rotações dos corpos celestes, adotamos como referência a da rotação
-terrestre para então realizar o cálculo das proporções Terra / planeta. Segue a fórmula abaixo:
+### Inclinação de rotação
+O corpos celestes rotacionam com uma determinada inclinação em relação ao seu plano orbital. No
+projeto, o ângulo (em radianos) é ajustado na main, na função animate.
 
 
 ***LEGENDA***
 * velRot = Velocidade de rotação do planeta.
-* rotTerra = Número de rotações da Terra realizadas em uma volta completa em torno do Sol;
-* rotPlan = Número de rotações do planeta realizadas em uma volta completa em torno do Sol ;<br><br>
-
+* rotTerra = Número de rotações realizadas da Terra em uma volta completa em torno do Sol;
+* rotPlan = Número de rotações realizadas do planeta em uma volta completa em torno do Sol ;<br><br>
+* tempoTerra = Variável de progressão de tempo da Terra.
 
 $$
-velRot = TempoTerra* \frac {(rotTerra)}{(rotPlan)}
+velRot = tempoTerra* \frac {(rotTerra)}{(rotPlan)}
 $$
+
+***LEGENDA***
+* $\Theta$ = Ângulo de inclinação (radianos);
+* incli = Inclinação da rotação;
+
+$$
+incli = \Theta
+$$
+
 
 ## Como rodar
 
