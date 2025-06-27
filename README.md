@@ -59,10 +59,9 @@ $$
 distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + SolRaio + terraRaio)}
 $$
 
-### 1.3 Inclinação de rotação
-O corpos celestes rotacionam com uma determinada inclinação em relação ao seu plano orbital. No
-projeto, o ângulo (em radianos) é ajustado na main, na função animate.
-
+### 1.3 Rotação dos planetas
+Para se obter as a velocidade das rotações dos corpos celestes, adotamos como referência a da rotação
+terrestre para então realizar o cálculo das proporções Terra / planeta. Segue a fórmula abaixo:
 
 ***LEGENDA***
 * velRot = Velocidade de rotação do planeta.
@@ -87,9 +86,12 @@ incli = \Theta
 $$
 
 
-## 3Como rodar
+## 2 Como rodar
 
-## 4 Funcionalidades
+## 3 Funcionalidades
+### 3.1 Ajuste do comprimento do raio do Sol
+### 3.2 Visualização de trajetória dos planetas
+### 3.3 Foco nos planetas.
 
-## 5 REFERÊNCIAS
+## 4 REFERÊNCIAS
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/
