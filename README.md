@@ -5,7 +5,7 @@ etc., com todos os dados extraídos da NASA. A ferramenta utilizada foi o Three 
 JavasCript que trabalha com o framework Node.JS.
 Para realizar este cálculo, adotou-se como referência a distância do centro da Terra até
 
-## Metodologia
+## 1 Metodologia
 A equipe decidiu representar fielmente o funcionamento do Sistema Solar, com dados extraídos da NASA.
 As proporções de tamanho, órbita em torno do Sol, e rotação dos planetas estão em escala real,
 com exceção das distância estes em relação ao Sol, em que aqui está representado em escala reduzida,
@@ -35,13 +35,13 @@ rotação, período de translação e inclinação orbital.
 | Netuno		| 24764		| 59800			       | 0.67			   | 4515                         | 28.3 |
 | Plutão		| 1188		| 90560			       | -6.39                     | 5906.4                       | 119.5 |
 
-### Escala
+### 1.1 Escala
 Para fins de melhor visualização e navegação, adotou-se uma escala bastante reduzida, tendo
 como base dessa escala o valor arbritário 60 armazenada na variável esc_dist presente no arquivo
 "sol.mjs". Com isso é possível visualizar as distâncias dos planetas entre si, ao mesmo tempo
 preservando as proporções.
 
-### Distância dos centros planeta-Sol
+### 1.2 Distância dos centros planeta-Sol
 Para realizar o cálculo deste aspecto, adotou-se como referência a distância do centro da Terra ao
 centro do Sol. Partindo disso, aplicamos a razão entre as distâncias centrais planeta-Sol por Terra-Sol,
 multiplicado pela escala padrão. Essa metodologia permite preservar as proporções das distâncias. A
@@ -59,7 +59,7 @@ $$
 distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + SolRaio + terraRaio)}
 $$
 
-### Inclinação de rotação
+### 1.3 Inclinação de rotação
 O corpos celestes rotacionam com uma determinada inclinação em relação ao seu plano orbital. No
 projeto, o ângulo (em radianos) é ajustado na main, na função animate.
 
@@ -74,6 +74,10 @@ $$
 velRot = tempoTerra* \frac {(rotTerra)}{(rotPlan)}
 $$
 
+### 1.4 Inclinação de rotação
+O corpos celestes rotacionam com uma determinada inclinação em relação ao seu plano orbital. No
+projeto, o ângulo (em radianos) é ajustado na main, na função animate.
+
 ***LEGENDA***
 * $\Theta$ = Ângulo de inclinação (radianos);
 * incli = Inclinação da rotação;
@@ -83,9 +87,9 @@ incli = \Theta
 $$
 
 
-## Como rodar
+## 3Como rodar
 
-## Funcionalidades
+## 4 Funcionalidades
 
-## REFERÊNCIAS
+## 5 REFERÊNCIAS
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/
