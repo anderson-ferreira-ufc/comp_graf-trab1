@@ -59,7 +59,26 @@ $$
 distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + SolRaio + terraRaio)}
 $$
 
-### 1.3 Rotação dos planetas
+### 1.3 Órbita dos planetas
+Para realizar o cálculo deste aspecto, adotou-se como referência a distância do centro da Terra ao
+centro do Sol. Partindo disso, aplicamos a razão entre as distâncias centrais planeta-Sol por Terra-Sol,
+multiplicado pela escala padrão. Essa metodologia permite preservar as proporções das distâncias. A
+fórmula abaixo expressa o método:<br>
+
+***LEGENDA***
+* escDist = Escala padrão de distância (60);
+* plaSolDist = Distância planeta-Sol;
+* solRaio = Comprimento do raio do Sol;
+* plaRaio = Comprimento do raio do planeta;
+* terraSolDist = distância Terra-Sol;
+* terraRaio = Comprimento do raio da Terra;<br><br>
+
+$$
+distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + SolRaio + terraRaio)}
+$$
+
+
+### 1.4 Rotação dos planetas
 Para se obter as a velocidade das rotações dos corpos celestes, adotamos como referência a da rotação
 terrestre para então realizar o cálculo das proporções Terra / planeta. Segue a fórmula abaixo:
 
@@ -73,7 +92,7 @@ $$
 velRot = tempoTerra* \frac {(rotTerra)}{(rotPlan)}
 $$
 
-### 1.4 Inclinação de rotação
+### 1.5 Inclinação de rotação
 O corpos celestes rotacionam com uma determinada inclinação em relação ao seu plano orbital. No
 projeto, o ângulo (em radianos) é ajustado na main, na função animate.
 
