@@ -29,7 +29,7 @@ import { trajetoriaUrano } from "./urano.mjs";
 import { trajetoriaNetuno } from "./netuno.mjs";
 import { trajetoriaPlutao } from "./plutao.mjs";
 // Importando as trajetórias dos planetas.
-solProporcao(usr_inp);
+const sol = solProporcao(usr_inp);
 let traj_mer,
   traj_ven,
   traj_terra,
@@ -61,6 +61,11 @@ function createGrid(size = 1300, divisions = 1000) {
   return gridHelper;
 }
 
+let camTargetObject = sol; // Guarda o OBJETO alvo (iniciando no Sol)
+let isCameraTransitioning = false; // Guarda o ESTADO da câmera (iniciando parada)
+let cameraFlightDestination = new THREE.Vector3(); // <-- ADICIONE ESTA LINHA
+let transicaoPlanetas = false;
+
 const mercurio = mercurioTranslacao();
 const venus = venusTranslacao();
 const terra = terraTranslacao();
@@ -72,6 +77,17 @@ const satAnel = saturnoAnelTranslacao();
 const urano = uranoTranslacao();
 const netuno = netunoTranslacao();
 const plutao = plutaoTranslacao()
+
+const cameraOffsetTerra = new THREE.Vector3(0, 5, 8);
+const cameraOffsetMercurio = new THREE.Vector3(0, 5, -7);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const lerpFactor = 0.02; // Deixei um pouco mais lento para a transição ficar mais bonita
+
 
 // Função de animação dos objetos da cena.
 function animate() {
@@ -169,6 +185,44 @@ function animate() {
   plutao.rotation.x = 2.09; // Inclinação do eixo de rotação de Plutão (119.5°)
   //camera.position.set(Math.sin(orbita_plu) * plu_sol_dist - 1*Math.cos(orbita_plu + Math.PI/2), 0, Math.cos(orbita_plu) * plu_sol_dist + 1*Math.sin(orbita_plu + Math.PI/2));
 
+  if (camTargetObject === sol) {
+    controls.enabled = true;
+
+    controls.target.copy(sol.position);
+  }
+  if (camTargetObject === terra) {
+    // DESABILITA os controles do mouse.
+    controls.enabled = false;
+
+    // Calcula a posição ideal da câmera
+    const destination = new THREE.Vector3().copy(terra.position).add(cameraOffsetTerra);
+    
+    // Move a câmera suavemente para essa posição.
+    camera.position.lerp(destination, lerpFactor);
+
+    // Força o alvo dos controles a ser a Terra.
+    controls.target.copy(terra.position);
+
+  } else if (camTargetObject === mercurio) {
+    
+    controls.enabled = false;
+
+    const destination = new THREE.Vector3().copy(mercurio.position).add(cameraOffsetMercurio);
+
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(mercurio.position);
+
+  } else if (camTargetObject === venus) {
+
+    controls.enabled = false;
+
+    const destination = new THREE.Vector3().copy(venus.position).add(cameraOffsetVenus);
+
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(venus.position);
+
+  } 
+
   controls.update();
 }
 
@@ -215,6 +269,7 @@ window.addEventListener("keydown", (event) => {
       break;
   }
 });
+
 document.getElementById("traj_merc").addEventListener("change", function (e) {
   if (e.target.checked) {
     traj_mer = trajetoriaMercurio();
@@ -320,4 +375,81 @@ document.getElementById("traj_todos").addEventListener("change", function (e) {
     scene.remove(traj_plu);
   }
 });*/
+
+/*document.getElementById("cam_terra").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    cam = "terra";
+  } else {
+    cam = "sol";
+    //camera.position.set(0, 50, 0);
+    //camera.lookAt(0, 0, 0);
+  }
+});*/
+
+document.getElementById("cam_sol").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = sol;
+  }
+});
+
+document.getElementById("cam_merc").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = mercurio;
+  }
+});
+
+document.getElementById("cam_ven").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = venus;
+  }
+});
+
+document.getElementById("cam_terra").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = terra;
+  }
+});
+
+/*document.getElementById("cam_lua").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = lua;
+  }
+});
+
+document.getElementById("cam_mar").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = marte;
+  }
+});
+
+document.getElementById("cam_jup").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = jupiter;
+  }
+});
+
+document.getElementById("cam_sart").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = saturno;
+  }
+});
+
+document.getElementById("cam_ura").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = urano;
+  }
+});
+
+document.getElementById("cam_net").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = netuno;
+  }
+});
+
+document.getElementById("cam_plu").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = plutao;
+  }
+});*/
+
 animate();

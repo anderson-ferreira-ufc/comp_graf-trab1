@@ -4,8 +4,9 @@ export const usr_inp = 0.15; //Proporção do Sol desejada pelo usuário (variar
 
 // Construção do Sol.
 export function solProporcao(proporcao){
-    const geo_sol = new THREE.SphereGeometry(109.2*proporcao, 32, 32); // Proporção do raio do Sol em relação ao raio da Terra.
-    const material_sol = new THREE.MeshBasicMaterial({color:0xffe341});
+    const sol_loader = new THREE.TextureLoader().load("textures/sol_tex.jpg");
+    const geo_sol = new THREE.IcosahedronGeometry(15, 4); // Proporção do raio do Sol em relação ao raio da Terra.
+    const material_sol = new THREE.MeshBasicMaterial({map: sol_loader});
     const sol = new THREE.Mesh(geo_sol, material_sol);
     sol.position.set(0, 0, 0);
     scene.add(sol);
