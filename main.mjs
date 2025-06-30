@@ -83,8 +83,8 @@ const cameraOffsetMercurio = new THREE.Vector3(0, 5, 0);
 const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
 const cameraOffsetLua = new THREE.Vector3(0, 5, 0);
 const cameraOffsetMarte = new THREE.Vector3(0, 5, 2);
-//const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-//const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetJupiter = new THREE.Vector3(0, 5, 10);
+const cameraOffsetSaturno = new THREE.Vector3(0, 5, 10);
 //const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
 const lerpFactor = 0.02; // Deixei um pouco mais lento para a transição ficar mais bonita
 
@@ -239,6 +239,24 @@ function animate() {
     camera.position.lerp(destination, lerpFactor);
     controls.target.copy(marte.position);
 
+  } else if (camTargetObject === jupiter) {
+
+    controls.enabled = false;
+
+    const destination = new THREE.Vector3().copy(jupiter.position).add(cameraOffsetJupiter);
+
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(jupiter.position);
+
+  } else if (camTargetObject === saturno) {
+
+    controls.enabled = false;
+
+    const destination = new THREE.Vector3().copy(saturno.position).add(cameraOffsetSaturno);
+
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(saturno.position);
+
   } 
 
   controls.update();
@@ -367,42 +385,6 @@ document.getElementById("traj_plu").addEventListener("change", function (e) {
     scene.remove(traj_plu);
   }
 });
-/*
-document.getElementById("traj_todos").addEventListener("change", function (e) {
-  if (e.target.checked) {
-    traj_mer = trajetoriaMercurio();
-    traj_ven = trajetoriaVenus();
-    traj_terra = trajetoriaTerra();
-    traj_lua = trajetoriaLua();
-    traj_mar = trajetoriaMarte();
-    traj_jup = trajetoriaJupiter();
-    traj_sat = trajetoriaSaturno();
-    traj_ura = trajetoriaUrano();
-    traj_net = trajetoriaNetuno();
-    traj_plu = trajetoriaPlutao();
-  } else {
-    scene.remove(traj_mer);
-    scene.remove(traj_ven);
-    scene.remove(traj_terra);
-    scene.remove(traj_lua);
-    scene.remove(traj_mar);
-    scene.remove(traj_jup);
-    scene.remove(traj_sat);
-    scene.remove(traj_ura);
-    scene.remove(traj_net);
-    scene.remove(traj_plu);
-  }
-});*/
-
-/*document.getElementById("cam_terra").addEventListener("change", function (e) {
-  if (e.target.checked) {
-    cam = "terra";
-  } else {
-    cam = "sol";
-    //camera.position.set(0, 50, 0);
-    //camera.lookAt(0, 0, 0);
-  }
-});*/
 
 document.getElementById("cam_sol").addEventListener("change", function (e) {
   if (e.target.checked) {
@@ -440,18 +422,18 @@ document.getElementById("cam_mar").addEventListener("change", function (e) {
   }
 });
 
-/*document.getElementById("cam_jup").addEventListener("change", function (e) {
+document.getElementById("cam_jup").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = jupiter;
   }
 });
 
-document.getElementById("cam_sart").addEventListener("change", function (e) {
+document.getElementById("cam_sat").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = saturno;
   }
 });
-
+/*
 document.getElementById("cam_ura").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = urano;
