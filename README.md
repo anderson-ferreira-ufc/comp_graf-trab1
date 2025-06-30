@@ -12,7 +12,7 @@ porém, ainda preservando a proporção das distâncias entre si. Isso foi adota
 visualização dos objeto na cena, pois em escala realista, impossibilitaria a visão geral do sistema,
 (a escala de distância poderia variar na casa dos milhares em relação ao diâmetro da Terra).
 	
-A tabela abaixo diz respeito as informações relacionadas aos planetas, no caso, o raio, período de translação,
+A tabela abaixo diz respeito as informações relacionadas aos planetas, que envolve o raio, período de translação,
 duração da rotação, distância do Sol e inclinação orbital.
 
 | Corpo celeste 	| Raio (Km) 	| Translação (dias terrestres) | Rotação (dias terrestres) | Distância do Sol (Gigametro) | Inclinação do eixo orbital (°)|
@@ -54,14 +54,15 @@ distCentro = escDist* \frac {(plaSolDist + solRaio + plaRaio)}{(terraSolDist + S
 $$
 
 ### 1.3 Órbita dos planetas
-Os planetas do Sistema Solar orbitam descrevendo um ciclo trigonométrico em torno do Sol, de uma
-visão acima do polo Norte da Terra. Em termos do espaço do programa, suas trajetórias de órbita
-são realizadas através dos componentes eixos x e z, de dimensões sen(t) e cos(t), multiplicado pela a
-distância do seu centro ao centro do Sol.
+Os planetas do Sistema Solar orbitam descrevendo um ciclo trigonométrico em torno do Sol, partindo
+da visão acima do polo Norte da Terra. No ambiente Three JS, suas trajetórias de órbita são realizadas
+através dos componentes eixos x e z, de dimensões sen(t) e cos(t) (t sendo o período de órbita),
+multiplicado pela a distância do seu centro ao centro do Sol. As fórmulas abaixo descrevem o
+comportamento conjunto dos componentes das órbitas dos planetas.
 
 ***LEGENDA***
 * x = Componente do seno;
-* y = Componente do cosseno;
+* z = Componente do cosseno;
 * t = Período de órbita do planeta em proporção com o da Terra;
 * plaSolDist = Distância do centro do planeta ao centro do Sol
 
@@ -74,7 +75,7 @@ $$
 
 ### 1.4 Rotação dos planetas
 Para se obter as a velocidade das rotações dos corpos celestes, adotamos como referência a da rotação
-terrestre para então realizar o cálculo das proporções Terra / planeta. Segue a fórmula abaixo:
+terrestre para poder realizar o cálculo das proporções Terra / planeta. Segue a fórmula abaixo:
 
 ***LEGENDA***
 * velRot = Velocidade de rotação do planeta.
@@ -88,7 +89,7 @@ $$
 
 ### 1.5 Inclinação de rotação
 O corpos celestes rotacionam com uma determinada inclinação em relação ao seu plano orbital. No
-projeto, o ângulo (em radianos) é ajustado na main, na função animate.
+projeto, o ângulo (em radianos) é ajustado na main.mjs, na função animate.
 
 ***LEGENDA***
 * $\Theta$ = Ângulo de inclinação (radianos);
