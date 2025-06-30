@@ -247,7 +247,7 @@ document.getElementById("traj_terra").addEventListener("change", function (e) {
 
 document.getElementById("traj_lua").addEventListener("change", function (e) {
   if (e.target.checked) {
-    traj_lua = trajetoriaLua();
+      traj_lua = trajetoriaLua();
   } else {
     scene.remove(traj_lua);
   }
