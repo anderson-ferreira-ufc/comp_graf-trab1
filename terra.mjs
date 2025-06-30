@@ -62,8 +62,8 @@ export function trajetoriaLua() {
   const curve = new THREE.EllipseCurve(
     0,
     0, // x e y do centro
-    6,
-    6, // raioX e raioY
+    raio_lua,
+    raio_lua, // raioX e raioY
     0,
     2 * Math.PI, // ângulo inicial e final
     false, // sentido horário (false = anti-horário)
@@ -78,6 +78,8 @@ export function trajetoriaLua() {
   const material = new THREE.LineBasicMaterial({ color: 0xfffff0 });
 
   const ellipse = new THREE.Line(geometry, material);
+  
   scene.add(ellipse);
+
   return ellipse;
 }
