@@ -82,16 +82,16 @@ const urano = uranoTranslacao();
 const netuno = netunoTranslacao();
 const plutao = plutaoTranslacao()
 
-const cameraOffsetTerra = new THREE.Vector3(0, 5, 8);
-const cameraOffsetMercurio = new THREE.Vector3(0, 5, 0);
-const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-const cameraOffsetLua = new THREE.Vector3(0, 5, 0);
-const cameraOffsetMarte = new THREE.Vector3(0, 5, 1);
-const cameraOffsetJupiter = new THREE.Vector3(-10, 5, 50);
+const cameraOffsetTerra = new THREE.Vector3(1.5, 0, 1.5);
+const cameraOffsetMercurio = new THREE.Vector3(0.5, 0.5, 0.5);
+const cameraOffsetVenus = new THREE.Vector3(1, 1, 1);
+const cameraOffsetLua = new THREE.Vector3(0.4, 0.4, 0.4);
+const cameraOffsetMarte = new THREE.Vector3(1, 0.4, 1);
+const cameraOffsetJupiter = new THREE.Vector3(-10, 7, 20);
 const cameraOffsetSaturno = new THREE.Vector3(-10, 5, 45);
-const cameraOffsetUrano = new THREE.Vector3(0, -10, 20);
-const cameraOffsetNetuno = new THREE.Vector3(0, -10, 20);
-const cameraOffsetPlutao = new THREE.Vector3(0, -10, 1);
+const cameraOffsetUrano = new THREE.Vector3(0, -10, 10);
+const cameraOffsetNetuno = new THREE.Vector3(0, -7, 7);
+const cameraOffsetPlutao = new THREE.Vector3(0, -0.5, 0.5);
 const lerpFactor = 0.02; // Deixei um pouco mais lento para a transição ficar mais bonita
 
 
