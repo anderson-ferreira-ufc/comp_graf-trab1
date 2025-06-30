@@ -100,10 +100,49 @@ incli = \Theta
 $$
 
 ## 2 Como rodar
+Para executar este projeto localmente, siga os passos abaixo:
+
+###1. Pré-requisitos
+Navegador com suporte a módulos ES6 (ex.: Chrome, Firefox, Edge)
+
+Servidor local para servir arquivos via HTTP ( Live Server no VS Code, http-server do Node.js, ou Python HTTP server)
+
+Atenção: Abrir os arquivos diretamente com file:// não funcionará corretamente devido às restrições de módulos ES (import/export).
+
+###2. Clonando o Repositório
+git clone https://github.com/anderson-ferreira-ufc/comp_graf-trab1.git
+cd comp_graf-trab1
+
+###3. Iniciando um servidor local
+Opção A: Usando VS Code com Live Server
+Instale a extensão Live Server
+
+Clique com o botão direito no arquivo index.html e selecione "Open with Live Server"
+
+Opção B: Usando Node.js e http-server
+npm install -g http-server
+http-server .
+Opção C: Usando Python 3
+python -m http.server
+###4. Acessando no Navegador
+Abra o navegador e acesse:
+http://localhost:8080
+
 
 ## 3 Funcionalidades
-### 3.1 Visualização de trajetória dos planetas
-### 3.2 Foco nos planetas.
 
-## 4 REFERÊNCIAS
+### 3.1 Visualização de trajetória dos planetas
+Ao selecionar o planeta no painel lateral, sua órbita é destacada visualmente, possibilitando o acompanhamento da trajetória do corpo celeste.
+
+### 3.2 Foco nos planetas
+
+### 3.3 Controle de velocidade dos planetas
+O sistema permite o ajuste da velocidade de dos corpos celestes por meio de comandos do teclado:
+A tecla + incrementa a velocidade de animação.
+A tecla - reduz a velocidade de animação.
+
+
+## 4 Link do vídeo de demonstração
+
+## 5 REFERÊNCIAS
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/
