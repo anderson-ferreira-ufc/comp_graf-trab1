@@ -7,24 +7,28 @@ T = 24 horas
     - Distância do Sol: 57.9 Gm;
     - Rotação: 58.65 dias T;
     - Órbita: 88 dias T;
+    - Inclinação (rotação): 0.034°.
 
 * Vênus:
     - Raio: 6052 km;
     - Distância do Sol: 108.2 Gm;
     - Rotação: 243 dias T;
     - Órbita: 224.7 dias T;
+    - Inclinação (rotação): 177.4°.
 
 * Terra:
     - Raio: 6378 km;
     - Distância do Sol: 149.6 Gm;
     - Rotação: 1 dia T;
     - Órbita: 365.25 dias T;
+    - Inclinação (rotação): 23.5°.
 
 * Lua:
     - Raio: 1737.4 km;
     - Distância do Sol: 149.6 Gm;
     - Rotação: 1 dia T;
     - Órbita: 365.25 dias T;
+    - Inclinação (rotação): 6.7°.
 
 
 * Marte:
@@ -32,36 +36,42 @@ T = 24 horas
     - Distância do Sol: 228 Gm;
     - Rotação: 1.02 dia T;
     - Órbita: 687 dias T;
+    - Inclinação (rotação): 25.2°
 
 * Júpiter:
     - Raio: 71492 km;
     - Distância do Sol: 778.5 Gm;
     - Rotação: 0.41 dia T;
     - Órbita: 4331 dias T;
+    - Inclinação (rotação): 3.1°.
 
 * Saturno:
     - Raio: 60268 km;
     - Distância do Sol: 1432 Gm;
     - Rotação: 0.45 dia T;
     - Órbita: 10747 dias T;
+    - Inclinação (rotação): 26.7°.
 
 * Urano:
     - Raio: 25559 km;
     - Distância do Sol: 2867 Gm;
     - Rotação: -0.71 dia T;
     - Órbita: 30589 dias T;
+    - Inclinação (rotação): 97.8°.
 
 * Netuno:
     - Raio: 24764 km;
     - Distância do Sol: 4515 Gm;
     - Rotação: 0.67 dia T;
     - Órbita: 59800 dias T;
+    - Inclinação (rotação): 28.3°.
 
 * Plutão:
     - Raio: 1188 km;
     - Distância do Sol: 5906.4 Gm;
     - Rotação: -6.39 dias T;
     - Órbita: 90560 dias T;
+    - Inclinação (rotação): 119.5°.
 
 REFERÊNCIA:
 
