@@ -79,13 +79,13 @@ const netuno = netunoTranslacao();
 const plutao = plutaoTranslacao()
 
 const cameraOffsetTerra = new THREE.Vector3(0, 5, 8);
-const cameraOffsetMercurio = new THREE.Vector3(0, 5, -7);
+const cameraOffsetMercurio = new THREE.Vector3(0, 5, 0);
 const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
-const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetLua = new THREE.Vector3(0, 5, 0);
+const cameraOffsetMarte = new THREE.Vector3(0, 5, 2);
+//const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+//const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+//const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
 const lerpFactor = 0.02; // Deixei um pouco mais lento para a transição ficar mais bonita
 
 
@@ -204,7 +204,7 @@ function animate() {
     controls.target.copy(terra.position);
 
   } else if (camTargetObject === mercurio) {
-    
+
     controls.enabled = false;
 
     const destination = new THREE.Vector3().copy(mercurio.position).add(cameraOffsetMercurio);
@@ -220,6 +220,24 @@ function animate() {
 
     camera.position.lerp(destination, lerpFactor);
     controls.target.copy(venus.position);
+
+  } else if (camTargetObject === lua) {
+
+    controls.enabled = false;
+
+    const destination = new THREE.Vector3().copy(lua.position).add(cameraOffsetLua);
+
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(lua.position);
+
+  } else if (camTargetObject === marte) {
+
+    controls.enabled = false;
+
+    const destination = new THREE.Vector3().copy(marte.position).add(cameraOffsetMarte);
+
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(marte.position);
 
   } 
 
@@ -410,7 +428,7 @@ document.getElementById("cam_terra").addEventListener("change", function (e) {
   }
 });
 
-/*document.getElementById("cam_lua").addEventListener("change", function (e) {
+document.getElementById("cam_lua").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = lua;
   }
@@ -422,7 +440,7 @@ document.getElementById("cam_mar").addEventListener("change", function (e) {
   }
 });
 
-document.getElementById("cam_jup").addEventListener("change", function (e) {
+/*document.getElementById("cam_jup").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = jupiter;
   }
