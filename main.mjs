@@ -17,6 +17,7 @@ import { ura_sol_dist, uranoTranslacao } from "./urano.mjs";
 import { net_sol_dist, netunoTranslacao } from "./netuno.mjs";
 import { plu_sol_dist, plutaoTranslacao } from "./plutao.mjs";
 import { OrbitControls } from "https://esm.sh/three/addons/controls/OrbitControls.js";
+//import { FirstPersonControls } from "https://esm.sh/three/addons/controls/FirstPersonControls.js";
 import { scene, camera, renderer } from "./cena.mjs";
 import { esc_dist, usr_inp, solProporcao } from "./sol.mjs";
 import { trajetoriaMercurio } from "./mercurio.mjs";
@@ -28,8 +29,11 @@ import { trajetoriaSaturno } from "./saturno.mjs";
 import { trajetoriaUrano } from "./urano.mjs";
 import { trajetoriaNetuno } from "./netuno.mjs";
 import { trajetoriaPlutao } from "./plutao.mjs";
+import { universo } from "./universo.mjs";
 // Importando as trajetórias dos planetas.
 solProporcao(usr_inp);
+universo();
+
 let traj_mer,
   traj_ven,
   traj_terra,
@@ -48,8 +52,11 @@ let aux = 1; // variavel auxiliar de velocidade
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(0, 50, 0);
 camera.lookAt(0, 0, 0);
-const controls = new OrbitControls(camera, renderer.domElement);
 document.body.appendChild(renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
+//fpcontrols.enabled = true;
+//fpcontrols.verticalLook = false;
+//scene.background = bg_loader.load('./textures/uni_tex1.png');
 
 // Eixo x, y e z.
 const axesHelper = new THREE.AxesHelper(15);
@@ -112,7 +119,7 @@ function animate() {
   lua.position.z =
     Math.cos(orbita_lua) * lua_sol_dist +
     Math.sin(13.37 * orbita_lua) * lua_sol_dist * 0.1;
-  lua.rotation.y = tempo_terra * (365.25 / -27.3); // Ano Terrestre (dias) / Rotação da Lua (dias terrestre)
+  lua.rotation.y = Math.PI + tempo_terra * (365.25 / -27.3); // Ano Terrestre (dias) / Rotação da Lua (dias terrestre), com a face visível da Lua pela Terra.
   lua.rotation.x = 0.12; // Inclinação do eixo de rotação da Lua (6.7°)
 
   // Parâmetros de transformação de Marte.
@@ -168,7 +175,6 @@ function animate() {
   plutao.rotation.y = tempo_terra * (365.25 / -6.39); // Ano Terrestre (dias) / Rotação de Plutão (dias terrestre)
   plutao.rotation.x = 2.09; // Inclinação do eixo de rotação de Plutão (119.5°)
   //camera.position.set(Math.sin(orbita_plu) * plu_sol_dist - 1*Math.cos(orbita_plu + Math.PI/2), 0, Math.cos(orbita_plu) * plu_sol_dist + 1*Math.sin(orbita_plu + Math.PI/2));
-
   controls.update();
 }
 
