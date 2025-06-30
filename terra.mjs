@@ -11,9 +11,13 @@ export const terra_sol_dist =
 export function terraTranslacao() {
   const terra_loader = new THREE.TextureLoader().load("textures/terra_tex.jpg");
   const geo_terra = new THREE.SphereGeometry(raio_terra / raio_terra, 32, 32); // Proporção Terra / Terra = 1
-  const material_terra = new THREE.MeshBasicMaterial({ map: terra_loader });
+  const material_terra = new THREE.MeshPhongMaterial({ map: terra_loader });
   const terra = new THREE.Mesh(geo_terra, material_terra);
   terra.position.set(0, 0, 0);
+
+  terra.castShadow = true;
+  terra.receiveShadow = true;
+
   scene.add(terra);
   return terra;
 }
@@ -27,9 +31,13 @@ export const lua_sol_dist =
 export function luaTranslacao() {
   const lua_loader = new THREE.TextureLoader().load("textures/lua_tex.jpg");
   const geo_lua = new THREE.SphereGeometry(raio_lua / raio_terra, 32, 32); // Proporção Lua / Terra = 0.27
-  const material_lua = new THREE.MeshBasicMaterial({ map: lua_loader });
+  const material_lua = new THREE.MeshPhongMaterial({ map: lua_loader });
   const lua = new THREE.Mesh(geo_lua, material_lua);
   lua.position.set(0, 0, 0);
+
+  lua.castShadow = true;
+  lua.receiveShadow = true;
+
   scene.add(lua);
   return lua;
 }

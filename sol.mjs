@@ -10,6 +10,17 @@ export function solProporcao(proporcao){
     const sol = new THREE.Mesh(geo_sol, material_sol);
     sol.position.set(0, 0, 0);
     scene.add(sol);
+
+    // Criando uma fonte de luz na origem do sol
+    const corDaLuz = 0xffffff; // Cor da luz
+    const intensidade = 3;     // Intensidade
+    const distancia = 4000;    // Alcance da luz
+    const luzDoSol = new THREE.PointLight(corDaLuz, intensidade, distancia);
+
+    // Abilitando as sombras que essa luz forma
+    luzDoSol.castShadow = true;
+    sol.add(luzDoSol);
+
     return sol;
 }
 

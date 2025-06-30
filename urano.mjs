@@ -11,9 +11,13 @@ export const ura_sol_dist =
 export function uranoTranslacao() {
   const ura_loader = new THREE.TextureLoader().load("textures/ura_tex.jpg");
   const geo_ura = new THREE.SphereGeometry(raio_ura / raio_terra, 32, 32); // Proporção Urano / Terra = 4.01
-  const material_ura = new THREE.MeshBasicMaterial({ map: ura_loader });
+  const material_ura = new THREE.MeshPhongMaterial({ map: ura_loader, color: 0x888888 });
   const urano = new THREE.Mesh(geo_ura, material_ura);
   urano.position.set(0, 0, 0);
+
+  urano.castShadow = true;
+  urano.receiveShadow = true;
+
   scene.add(urano);
   return urano;
 }

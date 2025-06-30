@@ -11,9 +11,13 @@ export const merc_sol_dist =
 export function mercurioTranslacao() {
   const merc_loader = new THREE.TextureLoader().load("textures/merc_tex.jpg");
   const geo_merc = new THREE.SphereGeometry(raio_merc / raio_terra, 32, 32); // Proporção Mercúrio / Terra = 0.38
-  const material_merc = new THREE.MeshBasicMaterial({ map: merc_loader });
+  const material_merc = new THREE.MeshPhongMaterial({ map: merc_loader });
   const mercurio = new THREE.Mesh(geo_merc, material_merc);
   mercurio.position.set(0, 0, 0);
+
+  mercurio.castShadow = true;
+  mercurio.receiveShadow = true;
+
   scene.add(mercurio);
   return mercurio;
 }

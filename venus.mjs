@@ -11,9 +11,13 @@ export const ven_sol_dist =
 export function venusTranslacao() {
   const ven_loader = new THREE.TextureLoader().load("textures/ven_tex.jpg");
   const geo_ven = new THREE.SphereGeometry(raio_ven / raio_terra, 32, 32); // Proporção Vênus / Terra = 0.95
-  const material_ven = new THREE.MeshBasicMaterial({ map: ven_loader });
+  const material_ven = new THREE.MeshPhongMaterial({ map: ven_loader });
   const venus = new THREE.Mesh(geo_ven, material_ven);
   venus.position.set(0, 0, 0);
+
+  venus.castShadow = true;
+  venus.receiveShadow = true;
+
   scene.add(venus);
   return venus;
 }

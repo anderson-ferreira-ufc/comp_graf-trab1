@@ -15,9 +15,13 @@ export const satAnel_sol_dist =
 export function saturnoTranslacao() {
   const sat_loader = new THREE.TextureLoader().load("textures/sat_tex.jpg");
   const geo_sat = new THREE.SphereGeometry(raio_sat / raio_terra, 32, 32); // Proporção Saturno / Terra = 9.45
-  const material_sat = new THREE.MeshBasicMaterial({ map: sat_loader });
+  const material_sat = new THREE.MeshPhongMaterial({ map: sat_loader, color: 0x666666 });
   const saturno = new THREE.Mesh(geo_sat, material_sat);
   saturno.position.set(0, 0, 0);
+
+  saturno.castShadow = true;
+  saturno.receiveShadow = true;
+
   scene.add(saturno);
   return saturno;
 }

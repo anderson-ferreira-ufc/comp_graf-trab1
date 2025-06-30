@@ -11,9 +11,13 @@ export const mar_sol_dist =
 export function marteTranslacao() {
   const mar_loader = new THREE.TextureLoader().load("textures/mar_tex.jpg");
   const geo_mar = new THREE.SphereGeometry(raio_mar / raio_terra, 32, 32); // Proporção Marte / Terra = 0.53
-  const material_mar = new THREE.MeshBasicMaterial({ map: mar_loader });
+  const material_mar = new THREE.MeshPhongMaterial({ map: mar_loader, color: 0x999999 });
   const marte = new THREE.Mesh(geo_mar, material_mar);
   marte.position.set(0, 0, 0);
+
+  marte.castShadow = true;
+  marte.receiveShadow = true;
+
   scene.add(marte);
   return marte;
 }
