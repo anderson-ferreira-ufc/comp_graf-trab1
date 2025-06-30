@@ -11,15 +11,15 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
 
     <!-- Instruções de controle -->
-    <p style="color: gold; background-color: black; position: absolute; font-size: small; left: 10px; top: 10px;">
+    <p style="color: gold; background-color: black; position: absolute; font-size: small; left: 10px; top: 10px; padding: 8px; border: 1px solid gold; border-radius: 5px;">
         +: aumentar velocidade <br>
         -: diminuir velocidade <br>
         p: pausar animação <br>
         spacebar: retomar à velocidade inicial <br><br>
-        Velocidade Atual: <span id="velocidade">1</span>
+        Velocidade Atual: <span id="velocidade">5</span>
     </p>
     <!-- Caixa de seleção de trajetórias -->
-    <div style="color: gold; background-color: black; position: absolute; font-size: small; left: 10px; top: 130px; padding: 8px; border: 1px solid gold; border-radius: 5px;">
+    <div style="color: gold; background-color: black; position: absolute; font-size: small; left: 10px; top: 150px; padding: 8px; border: 1px solid gold; border-radius: 5px;">
         <b>Trajetórias:</b><br>
         <!--<label><input type="checkbox" id="traj_todos"> Todos</label><br>-->
         <label><input type="checkbox" id="traj_merc"> Mercúrio</label><br>
@@ -33,6 +33,23 @@
         <label><input type="checkbox" id="traj_net"> Netuno</label><br>
         <label><input type="checkbox" id="traj_plu"> Plutão</label><br>
     </div>
+
+    <div style="color: gold; background-color: black; position: absolute; font-size: small; right: 10px; top: 10px; padding: 8px; border: 1px solid gold; border-radius: 5px;">
+        <b>Câmera:</b><br>
+        <!--<label><input type="checkbox" id="traj_todos"> Todos</label><br>-->
+        <label><input type="radio" name="camera" id="cam_sol" checked> Sol</label><br>
+        <label><input type="radio" name="camera" id="cam_merc"> Mercúrio</label><br>
+        <label><input type="radio" name="camera" id="cam_ven"> Vênus</label><br>
+        <label><input type="radio" name="camera" id="cam_terra"> Terra</label><br>
+        <label><input type="radio" name="camera" id="cam_lua"> Lua</label><br>
+        <label><input type="radio" name="camera" id="cam_mar"> Marte</label><br>
+        <label><input type="radio" name="camera" id="cam_jup"> Júpiter</label><br>
+        <label><input type="radio" name="camera" id="cam_sat"> Saturno</label><br>
+        <label><input type="radio" name="camera" id="cam_ura"> Urano</label><br>
+        <label><input type="radio" name="camera" id="cam_net"> Netuno</label><br>
+        <label><input type="radio" name="camera" id="cam_plu"> Plutão</label><br>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/FirstPersonControls.js"></script>-->
     <script type="module" src="./main.mjs"></script>

@@ -31,7 +31,7 @@ import { trajetoriaNetuno } from "./netuno.mjs";
 import { trajetoriaPlutao } from "./plutao.mjs";
 import { universo } from "./universo.mjs";
 // Importando as trajetórias dos planetas.
-solProporcao(usr_inp);
+const sol = solProporcao(usr_inp);
 universo();
 
 let traj_mer,
@@ -45,12 +45,12 @@ let traj_mer,
   traj_net,
   traj_plu;
 
-let animationSpeed = 1; // Velocidade de animação.
+let animationSpeed = 5; // Velocidade de animação.
 let tempo_terra = 0; // Variável utilizada como progressão de tempo.
 let aux = 1; // variavel auxiliar de velocidade
 
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.set(0, 50, 0);
+camera.position.set(30, 22, 10);
 camera.lookAt(0, 0, 0);
 document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -68,6 +68,8 @@ function createGrid(size = 1300, divisions = 1000) {
   return gridHelper;
 }
 
+let camTargetObject = sol; // Guarda o OBJETO alvo (iniciando no Sol)
+
 const mercurio = mercurioTranslacao();
 const venus = venusTranslacao();
 const terra = terraTranslacao();
@@ -79,6 +81,19 @@ const satAnel = saturnoAnelTranslacao();
 const urano = uranoTranslacao();
 const netuno = netunoTranslacao();
 const plutao = plutaoTranslacao()
+
+const cameraOffsetTerra = new THREE.Vector3(0, 5, 8);
+const cameraOffsetMercurio = new THREE.Vector3(0, 5, 0);
+const cameraOffsetVenus = new THREE.Vector3(0, 5, 2);
+const cameraOffsetLua = new THREE.Vector3(0, 5, 0);
+const cameraOffsetMarte = new THREE.Vector3(0, 5, 1);
+const cameraOffsetJupiter = new THREE.Vector3(-10, 5, 50);
+const cameraOffsetSaturno = new THREE.Vector3(-10, 5, 45);
+const cameraOffsetUrano = new THREE.Vector3(0, -10, 20);
+const cameraOffsetNetuno = new THREE.Vector3(0, -10, 20);
+const cameraOffsetPlutao = new THREE.Vector3(0, -10, 1);
+const lerpFactor = 0.02; // Deixei um pouco mais lento para a transição ficar mais bonita
+
 
 // Função de animação dos objetos da cena.
 function animate() {
@@ -175,6 +190,87 @@ function animate() {
   plutao.rotation.y = tempo_terra * (365.25 / -6.39); // Ano Terrestre (dias) / Rotação de Plutão (dias terrestre)
   plutao.rotation.x = 2.09; // Inclinação do eixo de rotação de Plutão (119.5°)
   //camera.position.set(Math.sin(orbita_plu) * plu_sol_dist - 1*Math.cos(orbita_plu + Math.PI/2), 0, Math.cos(orbita_plu) * plu_sol_dist + 1*Math.sin(orbita_plu + Math.PI/2));
+
+  if (camTargetObject === sol) {
+    controls.enabled = true;
+    
+    controls.target.copy(sol.position);
+  } else if (camTargetObject === terra) {
+
+    // DESABILITA os controles do mouse.
+    controls.enabled = false;
+    // Calcula a posição ideal da câmera
+    const destination = new THREE.Vector3().copy(terra.position).add(cameraOffsetTerra);
+    // Move a câmera suavemente para essa posição.
+    camera.position.lerp(destination, lerpFactor);
+    // Força o alvo dos controles a ser a Terra.
+    controls.target.copy(terra.position);
+
+  } else if (camTargetObject === mercurio) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(mercurio.position).add(cameraOffsetMercurio);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(mercurio.position);
+
+  } else if (camTargetObject === venus) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(venus.position).add(cameraOffsetVenus);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(venus.position);
+
+  } else if (camTargetObject === lua) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(lua.position).add(cameraOffsetLua);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(lua.position);
+
+  } else if (camTargetObject === marte) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(marte.position).add(cameraOffsetMarte);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(marte.position);
+
+  } else if (camTargetObject === jupiter) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(jupiter.position).add(cameraOffsetJupiter);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(jupiter.position);
+
+  } else if (camTargetObject === saturno) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(saturno.position).add(cameraOffsetSaturno);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(saturno.position);
+
+  } else if (camTargetObject === urano) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(urano.position).add(cameraOffsetUrano);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(urano.position);
+
+  } else if (camTargetObject === netuno) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(netuno.position).add(cameraOffsetNetuno);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(netuno.position);
+
+  } else if (camTargetObject === plutao) {
+
+    controls.enabled = false;
+    const destination = new THREE.Vector3().copy(plutao.position).add(cameraOffsetPlutao);
+    camera.position.lerp(destination, lerpFactor);
+    controls.target.copy(plutao.position);
+
+  } 
+
   controls.update();
 }
 
@@ -221,6 +317,7 @@ window.addEventListener("keydown", (event) => {
       break;
   }
 });
+
 document.getElementById("traj_merc").addEventListener("change", function (e) {
   if (e.target.checked) {
     traj_mer = trajetoriaMercurio();
@@ -300,30 +397,72 @@ document.getElementById("traj_plu").addEventListener("change", function (e) {
     scene.remove(traj_plu);
   }
 });
-/*
-document.getElementById("traj_todos").addEventListener("change", function (e) {
+
+document.getElementById("cam_sol").addEventListener("change", function (e) {
   if (e.target.checked) {
-    traj_mer = trajetoriaMercurio();
-    traj_ven = trajetoriaVenus();
-    traj_terra = trajetoriaTerra();
-    traj_lua = trajetoriaLua();
-    traj_mar = trajetoriaMarte();
-    traj_jup = trajetoriaJupiter();
-    traj_sat = trajetoriaSaturno();
-    traj_ura = trajetoriaUrano();
-    traj_net = trajetoriaNetuno();
-    traj_plu = trajetoriaPlutao();
-  } else {
-    scene.remove(traj_mer);
-    scene.remove(traj_ven);
-    scene.remove(traj_terra);
-    scene.remove(traj_lua);
-    scene.remove(traj_mar);
-    scene.remove(traj_jup);
-    scene.remove(traj_sat);
-    scene.remove(traj_ura);
-    scene.remove(traj_net);
-    scene.remove(traj_plu);
+    camTargetObject = sol;
+    camera.position.set(20, 50, 0);
   }
-});*/
+});
+
+document.getElementById("cam_merc").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = mercurio;
+  }
+});
+
+document.getElementById("cam_ven").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = venus;
+  }
+});
+
+document.getElementById("cam_terra").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = terra;
+  }
+});
+
+document.getElementById("cam_lua").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = lua;
+  }
+});
+
+document.getElementById("cam_mar").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = marte;
+  }
+});
+
+document.getElementById("cam_jup").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = jupiter;
+  }
+});
+
+document.getElementById("cam_sat").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = saturno;
+  }
+});
+
+document.getElementById("cam_ura").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = urano;
+  }
+});
+
+document.getElementById("cam_net").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = netuno;
+  }
+});
+
+document.getElementById("cam_plu").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    camTargetObject = plutao;
+  }
+});
+
 animate();
