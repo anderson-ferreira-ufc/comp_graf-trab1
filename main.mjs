@@ -38,7 +38,6 @@ universo();
 let traj_mer,
   traj_ven,
   traj_terra,
-  traj_lua,
   traj_mar,
   traj_jup,
   traj_sat,
@@ -46,7 +45,7 @@ let traj_mer,
   traj_net,
   traj_plu;
 
-let animationSpeed = 5; // Velocidade de animação.
+let animationSpeed = 1; // Velocidade de animação.
 let tempo_terra = 0; // Variável utilizada como progressão de tempo.
 let aux = 1; // variavel auxiliar de velocidade
 
@@ -76,11 +75,11 @@ const urano = uranoTranslacao();
 const netuno = netunoTranslacao();
 const plutao = plutaoTranslacao();
 
-const cameraOffsetTerra = new THREE.Vector3(-1, 0, 1.5);
-const cameraOffsetMercurio = new THREE.Vector3(-0.5, 0.5, 0.5);
-const cameraOffsetVenus = new THREE.Vector3(1, 1, 1);
-const cameraOffsetLua = new THREE.Vector3(-0.4, 0.3, 0.4);
-const cameraOffsetMarte = new THREE.Vector3(-1, 0.4, 1);
+const cameraOffsetTerra = new THREE.Vector3(-1, 0, -6);
+const cameraOffsetMercurio = new THREE.Vector3(-1, 0, 2);
+const cameraOffsetVenus = new THREE.Vector3(-1, 0, -3);
+const cameraOffsetLua = new THREE.Vector3(-0.4, 0, -3);
+const cameraOffsetMarte = new THREE.Vector3(-1, 0, -3);
 const cameraOffsetJupiter = new THREE.Vector3(-20, 0, -10);
 const cameraOffsetSaturno = new THREE.Vector3(-10, 40, -35);
 const cameraOffsetUrano = new THREE.Vector3(0, -5, -10);
@@ -196,8 +195,14 @@ function animate() {
     controls.enabled = false;
     // Calcula a posição ideal da câmera
     const destination = new THREE.Vector3().copy(terra.position).add(cameraOffsetTerra);
-    // Move a câmera suavemente para essa posição.
-    camera.position.lerp(destination, lerpFactor);
+
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      // Move a câmera suavemente para essa posição.
+      camera.position.lerp(destination, lerpFactor);
+    }
+    
     // Força o alvo dos controles a ser a Terra.
     controls.target.copy(terra.position);
 
@@ -205,63 +210,117 @@ function animate() {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(mercurio.position).add(cameraOffsetMercurio);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(mercurio.position);
 
   } else if (camTargetObject === venus) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(venus.position).add(cameraOffsetVenus);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(venus.position);
 
   } else if (camTargetObject === lua) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(lua.position).add(cameraOffsetLua);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(lua.position);
 
   } else if (camTargetObject === marte) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(marte.position).add(cameraOffsetMarte);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(marte.position);
 
   } else if (camTargetObject === jupiter) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(jupiter.position).add(cameraOffsetJupiter);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(jupiter.position);
 
   } else if (camTargetObject === saturno) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(saturno.position).add(cameraOffsetSaturno);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(saturno.position);
 
   } else if (camTargetObject === urano) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(urano.position).add(cameraOffsetUrano);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(urano.position);
 
   } else if (camTargetObject === netuno) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(netuno.position).add(cameraOffsetNetuno);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(netuno.position);
 
   } else if (camTargetObject === plutao) {
 
     controls.enabled = false;
     const destination = new THREE.Vector3().copy(plutao.position).add(cameraOffsetPlutao);
-    camera.position.lerp(destination, lerpFactor);
+    
+    if (animationSpeed == 0) {
+      controls.enabled = true;
+    } else {
+      camera.position.lerp(destination, lerpFactor);
+    }
+
     controls.target.copy(plutao.position);
 
   } 
@@ -337,14 +396,6 @@ document.getElementById("traj_terra").addEventListener("change", function (e) {
   }
 });
 
-/*document.getElementById("traj_lua").addEventListener("change", function (e) {
-  if (e.target.checked) {
-      traj_lua = trajetoriaLua();
-  } else {
-    scene.remove(traj_lua);
-  }
-});*/
-
 document.getElementById("traj_mar").addEventListener("change", function (e) {
   if (e.target.checked) {
     traj_mar = trajetoriaMarte();
@@ -393,7 +444,7 @@ document.getElementById("traj_plu").addEventListener("change", function (e) {
   }
 });
 
-// Eventos Listener para trocar o alvo da câmera
+// Eventos Listener para trocar o alvo da câmera:
 document.getElementById("cam_sol").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = sol;
