@@ -11,9 +11,13 @@ export const jup_sol_dist =
 export function jupiterTranslacao() {
   const jup_loader = new THREE.TextureLoader().load("textures/jup_tex.jpg");
   const geo_jup = new THREE.SphereGeometry(raio_jup / raio_terra, 32, 32); // Proporção Júpiter / Terra = 11.21
-  const material_jup = new THREE.MeshBasicMaterial({ map: jup_loader });
+  const material_jup = new THREE.MeshPhongMaterial({ map: jup_loader, color: 0x777777 });
   const jupiter = new THREE.Mesh(geo_jup, material_jup);
   jupiter.position.set(0, 0, 0);
+
+  jupiter.castShadow = true;
+  jupiter.receiveShadow = true;
+
   scene.add(jupiter);
   return jupiter;
 }

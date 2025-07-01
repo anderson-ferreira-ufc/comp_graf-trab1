@@ -30,7 +30,7 @@ import { trajetoriaUrano } from "./urano.mjs";
 import { trajetoriaNetuno } from "./netuno.mjs";
 import { trajetoriaPlutao } from "./plutao.mjs";
 import { universo } from "./universo.mjs";
-// Importando as trajetórias dos planetas.
+
 const sol = solProporcao(usr_inp);
 universo();
 
@@ -50,25 +50,18 @@ let tempo_terra = 0; // Variável utilizada como progressão de tempo.
 let aux = 1; // variavel auxiliar de velocidade
 
 renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Habilita sombras no render
+renderer.shadowMap.enabled = true;
+// Tipo da sombra
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
 camera.position.set(30, 22, 10);
 camera.lookAt(0, 0, 0);
 document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
-//fpcontrols.enabled = true;
-//fpcontrols.verticalLook = false;
-//scene.background = bg_loader.load('./textures/uni_tex1.png');
 
-// Eixo x, y e z.
-const axesHelper = new THREE.AxesHelper(15);
-//scene.add( axesHelper );
-
-// Grid de apoio.
-function createGrid(size = 1300, divisions = 1000) {
-  const gridHelper = new THREE.GridHelper(size, divisions);
-  return gridHelper;
-}
-
-let camTargetObject = sol; // Guarda o OBJETO alvo (iniciando no Sol)
+let camTargetObject = sol; // Inicia a câmera no sol
 
 const mercurio = mercurioTranslacao();
 const venus = venusTranslacao();
@@ -80,18 +73,18 @@ const saturno = saturnoTranslacao();
 const satAnel = saturnoAnelTranslacao();
 const urano = uranoTranslacao();
 const netuno = netunoTranslacao();
-const plutao = plutaoTranslacao()
+const plutao = plutaoTranslacao();
 
-const cameraOffsetTerra = new THREE.Vector3(1.5, 0, 1.5);
-const cameraOffsetMercurio = new THREE.Vector3(0.5, 0.5, 0.5);
+const cameraOffsetTerra = new THREE.Vector3(-1, 0, 1.5);
+const cameraOffsetMercurio = new THREE.Vector3(-0.5, 0.5, 0.5);
 const cameraOffsetVenus = new THREE.Vector3(1, 1, 1);
-const cameraOffsetLua = new THREE.Vector3(0.4, 0.4, 0.4);
-const cameraOffsetMarte = new THREE.Vector3(1, 0.4, 1);
-const cameraOffsetJupiter = new THREE.Vector3(-10, 7, 20);
-const cameraOffsetSaturno = new THREE.Vector3(-10, 5, 45);
-const cameraOffsetUrano = new THREE.Vector3(0, -10, 10);
-const cameraOffsetNetuno = new THREE.Vector3(0, -7, 7);
-const cameraOffsetPlutao = new THREE.Vector3(0, -0.5, 0.5);
+const cameraOffsetLua = new THREE.Vector3(-0.4, 0.3, 0.4);
+const cameraOffsetMarte = new THREE.Vector3(-1, 0.4, 1);
+const cameraOffsetJupiter = new THREE.Vector3(-20, 0, -10);
+const cameraOffsetSaturno = new THREE.Vector3(-10, 40, -35);
+const cameraOffsetUrano = new THREE.Vector3(0, -5, -10);
+const cameraOffsetNetuno = new THREE.Vector3(-3, 0, -10);
+const cameraOffsetPlutao = new THREE.Vector3(-0.5, 0, -0.5);
 const lerpFactor = 0.02; // Deixei um pouco mais lento para a transição ficar mais bonita
 
 
@@ -191,6 +184,7 @@ function animate() {
   plutao.rotation.x = 2.09; // Inclinação do eixo de rotação de Plutão (119.5°)
   //camera.position.set(Math.sin(orbita_plu) * plu_sol_dist - 1*Math.cos(orbita_plu + Math.PI/2), 0, Math.cos(orbita_plu) * plu_sol_dist + 1*Math.sin(orbita_plu + Math.PI/2));
 
+  // Controle da câmera
   if (camTargetObject === sol) {
     controls.enabled = true;
     
@@ -274,8 +268,7 @@ function animate() {
   controls.update();
 }
 
-//event listener para apertar botões
-// ajeitar multiplicação que ocorre
+// Event listener para apertar botões
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "+":
@@ -318,6 +311,7 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
+// Eventos Listener para habilitar a trajetória dos planetas
 document.getElementById("traj_merc").addEventListener("change", function (e) {
   if (e.target.checked) {
     traj_mer = trajetoriaMercurio();
@@ -342,13 +336,13 @@ document.getElementById("traj_terra").addEventListener("change", function (e) {
   }
 });
 
-document.getElementById("traj_lua").addEventListener("change", function (e) {
+/*document.getElementById("traj_lua").addEventListener("change", function (e) {
   if (e.target.checked) {
       traj_lua = trajetoriaLua();
   } else {
     scene.remove(traj_lua);
   }
-});
+});*/
 
 document.getElementById("traj_mar").addEventListener("change", function (e) {
   if (e.target.checked) {
@@ -398,6 +392,7 @@ document.getElementById("traj_plu").addEventListener("change", function (e) {
   }
 });
 
+// Eventos Listener para trocar o alvo da câmera
 document.getElementById("cam_sol").addEventListener("change", function (e) {
   if (e.target.checked) {
     camTargetObject = sol;
