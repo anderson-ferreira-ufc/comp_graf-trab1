@@ -16,7 +16,8 @@ import {
 import { ura_sol_dist, uranoTranslacao } from "./urano.mjs";
 import { net_sol_dist, netunoTranslacao } from "./netuno.mjs";
 import { plu_sol_dist, plutaoTranslacao } from "./plutao.mjs";
-import { OrbitControls } from "https://esm.sh/three/addons/controls/OrbitControls.js";
+import { OrbitControls } from "./thr/OrbitControls.js"; //Local
+//import { OrbitControls } from "https://esm.sh/three/addons/controls/OrbitControls.js"; Remoto
 //import { FirstPersonControls } from "https://esm.sh/three/addons/controls/FirstPersonControls.js";
 import { scene, camera, renderer } from "./cena.mjs";
 import { esc_dist, usr_inp, solProporcao } from "./sol.mjs";
