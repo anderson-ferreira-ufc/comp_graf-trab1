@@ -102,18 +102,20 @@ $$
 ## 2 Como rodar
 Para executar este projeto localmente, siga os passos abaixo:
 
-###1. Pré-requisitos
+### 2.1 Pré-requisitos
 Navegador com suporte a módulos ES6 (ex.: Chrome, Firefox, Edge)
+
+Conexão à internet.
 
 Servidor local para servir arquivos via HTTP ( Live Server no VS Code, http-server do Node.js, ou Python HTTP server)
 
 Atenção: Abrir os arquivos diretamente com file:// não funcionará corretamente devido às restrições de módulos ES (import/export).
 
-###2. Clonando o Repositório
+### 2.2 Clonando o Repositório
 git clone https://github.com/anderson-ferreira-ufc/comp_graf-trab1.git
 cd comp_graf-trab1
 
-###3. Iniciando um servidor local
+### 2.3 Iniciando um servidor local
 Opção A: Usando VS Code com Live Server
 Instale a extensão Live Server
 
