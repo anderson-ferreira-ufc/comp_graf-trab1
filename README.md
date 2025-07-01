@@ -143,8 +143,16 @@ O sistema permite o ajuste da velocidade de dos corpos celestes por meio de coma
 A tecla + incrementa a velocidade de animação.
 A tecla - reduz a velocidade de animação.
 
+## Equipe
+Anderson Ferreira
+Ryan Gomes
+Junior Benedito Moreira
+Arthur Vieira
+Juliana Barboza
+Elizeu Duarte
+Eduardo Castro
+Jhonanthan Wyllian
+## 5 Link do vídeo de demonstração
 
-## 4 Link do vídeo de demonstração
-
-## 5 REFERÊNCIAS
+## 6 REFERÊNCIAS
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/
