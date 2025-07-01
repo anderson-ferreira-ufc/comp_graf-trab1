@@ -151,7 +151,7 @@ Arthur Vieira de Lacerda Fialho<br>
 Juliana de Paiva Barboza<br>
 Elizeu Sousa Duarte<br>
 Eduardo Santos de Castro<br>
-Jhonanthan Wyllyan Souza Silveira<br>
+Jhonanthan Willyan Souza Silveira<br>
 ## 5 Link do vídeo de demonstração
 
 ## 6 REFERÊNCIAS
