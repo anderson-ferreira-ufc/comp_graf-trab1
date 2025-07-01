@@ -144,14 +144,14 @@ A tecla + incrementa a velocidade de animação.
 A tecla - reduz a velocidade de animação.
 
 ## Equipe
-Anderson Ferreira<br>
-Ryan Gomes<br>
-Junior Benedito Moreira<br>
-Arthur Vieira<br>
-Juliana Barboza<br>
-Elizeu Duarte<br>
-Eduardo Castro<br>
-Jhonanthan Wyllian<br>
+Anderson Ferreira Almeida<br>
+Ryan Gomes Magalhães Lima<br>
+Antônio Benedito Moreira Júnior<br>
+Arthur Vieira de Lacerda Fialho<br>
+Juliana de Paiva Barboza<br>
+Elizeu Sousa Duarte<br>
+Eduardo Santos de Castro<br>
+Jhonanthan Wyllyan Souza Silveira<br>
 ## 5 Link do vídeo de demonstração
 
 ## 6 REFERÊNCIAS
