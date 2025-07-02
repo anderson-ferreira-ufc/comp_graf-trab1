@@ -127,7 +127,7 @@ python -m http.server
 
 ### 4. Acessando no Navegador
 
-Abra o navegador e acesse:
+Abra o navegador e acesse:<br>
 http://localhost:8080
 
 ## 3 Funcionalidades
@@ -159,6 +159,9 @@ Eduardo Castro<br>
 Jhonanthan Wyllian<br>
 
 ## 5 Link do vídeo de demonstração
+Abaixo se encontra o vídeo de demonstração do programa, explorando todos os recursos implementados, visualização
+dos planetas e as demais features:<br>
+	https://youtu.be/VSPbIkD2IpE
 
 ## 6 REFERÊNCIAS
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/
