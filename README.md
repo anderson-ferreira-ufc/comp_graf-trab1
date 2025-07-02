@@ -133,16 +133,20 @@ http://localhost:8080
 ## 3 Funcionalidades
 
 ### 3.1 Visualização de trajetória dos planetas
-Ao selecionar o planeta no painel lateral, sua órbita é destacada visualmente, possibilitando o acompanhamento da trajetória do corpo celeste.
+Ao selecionar o planeta no painel lateral, a trajetória de sua órbita é destacada visualmente, possibilitando o acompanhamento da
+trajetória do corpo celeste.
 
 ### 3.2 Foco nos planetas
 Essa feature possibilita acompanhar o planeta enquanto realiza sua translação, que é feito clicando no nome do astro na janela direita.
-O recurso permite ter uma apreciação melhor da aparência do planetas, sendo também possível controlar a câmera (deve-se pausar o sistema, apertando p ou reduzindoa a zero, para ter essa possibilidade).
+O recurso permite ter uma apreciação melhor da aparência do planetas, sendo também possível controlar a câmera (deve-se pausar o
+sistema, apertando p ou reduzindoa a zero, para ter essa possibilidade).
 
 ### 3.3 Controle de velocidade dos planetas
-O sistema permite o ajuste da velocidade de dos corpos celestes por meio de comandos do teclado:
-A tecla + incrementa a velocidade de animação.
-A tecla - reduz a velocidade de animação.
+O sistema permite o ajuste da velocidade de dos corpos celestes por meio de comandos do teclado:<br>
+A tecla + incrementa a velocidade de animação.<br>
+A tecla - reduz a velocidade de animação.<br>
+A tecla p pausa o programa.<br>
+A tecla Espaço retoma a velocidade padrão.<br>
 
 ## Equipe
 Anderson Ferreira<br>
